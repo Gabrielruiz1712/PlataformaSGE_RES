@@ -1,18 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="40dp"
+    android:gravity="center_vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="35dp"
+        android:text="Ingrese"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/noControlLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:inputType="number"
+        android:text="17121102"
+        android:hint="Numero de Control"/>
+
+
+    <EditText
+        android:id="@+id/contrasenaLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:inputType="textPassword"
+        android:text="123"
+        android:hint="Password"/>
+
+    <TextView
+        android:id="@+id/redirigirSignin"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:linksClickable="true"
+        android:text="No tienes una cuenta? Crear Una" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Ingrese"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
