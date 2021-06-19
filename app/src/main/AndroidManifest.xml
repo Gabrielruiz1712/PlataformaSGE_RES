@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PlataformaSGE_RES">
-        <activity android:name=".MenuResidencias"></activity>
+        <activity android:name=".DetalleProyecto"></activity>
+        <activity android:name=".MenuResidencias" />
         <activity android:name=".Menu" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -18,29 +18,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Base de datos
-        val bdString =  resources.getString(R.string.baseDatos)
+        val bdString = resources.getString(R.string.baseDatos)
         val bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
 
         binding.btnLogin.setOnClickListener {
             val nc = binding.noControlLogin.text.toString()
             val pass = binding.contrasenaLogin.text.toString()
 
-            println(bd)
-
             for (alumno in bd.alumnos) {
-                if (alumno.nc == nc && alumno.pass == pass) {
+                if (alumno.nc.equals(nc) && alumno.pass.equals(pass)) {
                     val intent = Intent(this, Menu::class.java)
                     intent.putExtra("ALUMNO", alumno)
-
                     startActivity(intent)
-                    break
-                }else{
-                    Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
                 }
             }
-
-
         }
-
     }
 }

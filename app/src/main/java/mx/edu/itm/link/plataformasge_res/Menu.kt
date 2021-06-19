@@ -1,11 +1,9 @@
 package mx.edu.itm.link.plataformasge_res
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import mx.edu.itm.link.plataformasge_res.databinding.ActivityMenuBinding
-import mx.edu.itm.link.plataformasge_res.databinding.ActivityMenuResidencias2Binding
-
 
 
 class Menu : AppCompatActivity() {
