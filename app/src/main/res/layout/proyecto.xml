@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="10dp">
+        app:cardElevation="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -33,7 +33,8 @@
                     android:id="@+id/nombreProyecto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lines="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:text="Nombre Proyecto"
                     android:textColor="@color/black"
                     android:textSize="30sp" />
@@ -43,7 +44,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:lines="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:text="Nombre Empresa"
                     android:textSize="20sp" />
 
@@ -51,7 +53,8 @@
                     android:id="@+id/descripcionProyecto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lines="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:text="Descripcion proyecto"
                     android:textSize="20sp" />
 
@@ -59,7 +62,8 @@
                     android:id="@+id/lgacProyecto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lines="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:text="LGAC"
                     android:textSize="20sp" />
             </LinearLayout>

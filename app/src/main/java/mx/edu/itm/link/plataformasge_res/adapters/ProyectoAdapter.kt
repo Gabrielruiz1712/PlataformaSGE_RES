@@ -15,7 +15,11 @@ import mx.edu.itm.link.plataformasge_res.Menu
 import mx.edu.itm.link.plataformasge_res.R
 import mx.edu.itm.link.plataformasge_res.models.Proyecto
 
-class ProyectoAdapter(val context: Context, val layout: Int, val lista: ArrayList<Proyecto>) :
+abstract class ProyectoAdapter(
+    val context: Context,
+    val layout: Int,
+    val lista: ArrayList<Proyecto>
+) :
     BaseAdapter() {
     override fun getCount(): Int {
         return lista.size
@@ -46,16 +50,14 @@ class ProyectoAdapter(val context: Context, val layout: Int, val lista: ArrayLis
         lgacProyecto.text = lista[position].lgac
 
         cardProyecto.setOnClickListener {
-            val intent = Intent(context, DetalleProyecto::class.java)
-            intent.putExtra("PROYECTO", lista[position])
-            context.startActivity(intent)
+            clickItemProyecto(lista[position])
         }
         btnIr.setOnClickListener {
-            val intent = Intent(context, DetalleProyecto::class.java)
-            intent.putExtra("PROYECTO", lista[position])
-            context.startActivity(intent)
+            clickItemProyecto(lista[position])
         }
 
         return miView
     }
+
+    abstract fun clickItemProyecto(proyecto: Proyecto)
 }

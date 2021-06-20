@@ -1,5 +1,6 @@
 package mx.edu.itm.link.plataformasge_res
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import mx.edu.itm.link.plataformasge_res.databinding.ActivityDetalleProyectoBinding
@@ -13,7 +14,7 @@ class DetalleProyecto : AppCompatActivity() {
         binding = ActivityDetalleProyectoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Este proyecto viene desde el adapter proyecto
+        val alumno = intent.getSerializableExtra("ALUMNO")
         val proyecto = intent.getSerializableExtra("PROYECTO") as Proyecto
 
         binding.nombreProyectoDetalle.text = proyecto.nombreProyecto
@@ -22,7 +23,10 @@ class DetalleProyecto : AppCompatActivity() {
         binding.descripcionDetalle.text = proyecto.descripcion
 
         binding.btnQuieroEsteProyecto.setOnClickListener {
-
+            val intent = Intent(this, SeleccionProyecto::class.java)
+            intent.putExtra("ALUMNO", alumno)
+            intent.putExtra("PROYECTO", proyecto)
+            startActivity(intent)
         }
 
     }
