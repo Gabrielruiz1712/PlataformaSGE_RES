@@ -2,103 +2,103 @@
     <string name="app_name">PlataformaSGE_RES</string>
 
     <string name="baseDatos">
-        {
-          "proyectos": [
-            {
-              "id": 1,
-              "nombreProyecto": "'Reclutar alienigenas'",
-              "nombreEmpresa": "'Area 51'",
-              "descripcion": "'Reclutar cientificos del planeta X12.0 para aplicaciones de intervuelo'",
-              "lgac": "'ciencias del universo'"
-            },
-            {
-              "id": 2,
-              "nombreProyecto": "'Energia desconocida procedente del Ether'",
-              "nombreEmpresa": "'Energy Mars y quantum computing'",
-              "descripcion": "'Liderar una flotilla de ingenieros de energia con el fin de obtener informacion sobre esa fuente desconocida'",
-              "lgac": "'Energías alternativas del espacio'"
-            },
-            {
-              "id": 3,
-              "nombreProyecto": "'Diccionario para entender a mi novia'",
-              "nombreEmpresa": "'IT-Morelia'",
-              "descripcion": "'Redactar una guia eficaz dirigida al Emmanuel para desbloquear el tope del conocimiento humano'",
-              "lgac": "'Redaccion y filosofía profunda'"
-            }
-          ],
-          "profesores": [
-            {
-              "id": 1,
-              "idLinea": 1,
-              "nombre": "'Carol Aidee'",
-              "titulo": "'Ing. ciencias del universo'"
-            },
-            {
-              "id": 2,
-              "nombre": "'Alejandro Amaro'",
-              "idLinea": 2,
-              "titulo": "'Ing. de energia obscura'"
-            },
-            {
-              "id": 3,
-              "nombre": "'Raymundo'",
-              "idLinea": 3,
-              "titulo": "'Lic. Redaccion y filosofía profunda'"
-            },
-            {
-              "id": 4,
-              "nombre": "'Abel Pintor'",
-              "idLinea": 2,
-              "titulo": "'Ing. de energia obscura'"
-            }
-          ],
-          "alumnos": [
-            {
-              "nombre": "'Emmanuel'",
-              "apellidos": "'Esquivel Pardo'",
-              "nc": "'18120215'",
-              "pass":"'123'",
-              "reportes": [
-                {
-                  "parte": 1,
-                  "version": 1,
-                  "aprovado": false
-                }
-              ]
-            },
-            {
-              "nombre": "'Alberto'",
-              "apellidos": "'Oseguera'",
-              "nc": "'17121095'",
-              "pass":"'123'",
-              "reportes": [
-                {
-                  "parte": 1,
-                  "version": 1,
-                  "aprovado": true
-                },
-                {
-                  "parte": 2,
-                  "version": 1,
-                  "aprovado": false
-                }
-              ]
-            },
-            {
-              "nombre": "'Gabriel'",
-              "apellidos": "'Ruiz'",
-              "nc": "'17121102'",
-              "pass":"'123'",
-              "reportes": [
-                {
-                  "parte": 1,
-                  "version": 1,
-                  "aprovado": true
-                }
-              ]
-            }
-          ]
-        }
+      {
+        "proyectos": [
+          {
+            "id": 1,
+            "nombreProyecto": "'Reclutar ovnis'",
+            "nombreEmpresa": "'Area 51'",
+            "descripcion": "'Reclutar cientificos del planeta X12.0 para aplicaciones de intervuelo'",
+            "lgac": "'ciencias del universo'"
+          },
+          {
+            "id": 2,
+            "nombreProyecto": "'Energia desconocida procedente del Ether'",
+            "nombreEmpresa": "'Energy Mars and quantum computing'",
+            "descripcion": "'Liderar una flotilla de ingenieros de energia con el fin de obtener informacion sobre esa fuente desconocida'",
+            "lgac": "'Energías alternativas del espacio'"
+          },
+          {
+            "id": 3,
+            "nombreProyecto": "'Diccionario para entender a mi novia'",
+            "nombreEmpresa": "'IT-Morelia'",
+            "descripcion": "'Redactar una guia eficaz dirigida al Emmanuel para desbloquear el tope del conocimiento humano'",
+            "lgac": "'Redaccion y filosofía profunda'"
+          }
+        ],
+        "profesores": [
+          {
+            "id": 1,
+            "linea": "'ciencias del universo'",
+            "nombre": "'Carol Aidee'",
+            "titulo": "'Ing. ciencias del universo'"
+          },
+          {
+            "id": 2,
+            "nombre": "'Alejandro Amaro'",
+            "linea": "'Energías alternativas del espacio'",
+            "titulo": "'Ing. de energia obscura'"
+          },
+          {
+            "id": 3,
+            "nombre": "'Raymundo'",
+            "linea": "'Redaccion y filosofía profunda'",
+            "titulo": "'Lic. Redaccion y filosofía profunda'"
+          },
+          {
+            "id": 4,
+            "nombre": "'Abel Pintor'",
+            "linea": "'Energías alternativas del espacio'",
+            "titulo": "'Ing. de energia obscura'"
+          }
+        ],
+        "alumnos": [
+          {
+            "nombre": "'Emmanuel'",
+            "apellidos": "'Esquivel Pardo'",
+            "nc": "'18120215'",
+            "pass":"'123'",
+            "reportes": [
+              {
+                "parte": 1,
+                "version": 1,
+                "aprovado": false
+              }
+            ]
+          },
+          {
+            "nombre": "'Alberto'",
+            "apellidos": "'Oseguera'",
+            "nc": "'17121095'",
+            "pass":"'123'",
+            "reportes": [
+              {
+                "parte": 1,
+                "version": 1,
+                "aprovado": true
+              },
+              {
+                "parte": 2,
+                "version": 1,
+                "aprovado": false
+              }
+            ]
+          },
+          {
+            "nombre": "'Gabriel'",
+            "apellidos": "'Ruiz'",
+            "nc": "'17121102'",
+            "pass":"'123'",
+            "reportes": [
+              {
+                "parte": 1,
+                "version": 1,
+                "aprovado": true
+              }
+            ]
+          }
+        ]
+      }
 
 
     </string>

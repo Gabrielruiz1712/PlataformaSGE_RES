@@ -7,8 +7,8 @@ import java.io.Serializable
 data class Profesore(
     @SerializedName("id")
     val id: Int,
-    @SerializedName("idLinea")
-    val idLinea: Int,
+    @SerializedName("linea")
+    val linea: String,
     @SerializedName("nombre")
     val nombre: String,
     @SerializedName("titulo")
