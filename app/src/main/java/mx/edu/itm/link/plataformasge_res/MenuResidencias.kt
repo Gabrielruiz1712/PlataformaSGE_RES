@@ -37,7 +37,7 @@ class MenuResidencias : AppCompatActivity() {
         }
 
         binding.fabAgregarProeyecto.setOnClickListener {
-            val intent = Intent(this, Menu::class.java)
+            val intent = Intent(this, AgregarDependencia::class.java)
             intent.putExtra("ALUMNO", alumno)
             startActivity(intent)
         }

@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">PlataformaSGE_RES</string>
 
+  <string-array name="numSemestres">
+    <item>Semestre 1</item>
+    <item>Semestre 2</item>
+    <item>Semestre 3</item>
+    <item>Semestre 4</item>
+    <item>Semestre 5</item>
+    <item>Semestre 6</item>
+    <item>Semestre 7</item>
+  </string-array>
+
     <string name="baseDatos">
       {
         "proyectos": [

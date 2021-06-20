@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AgregarDependencia">
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#03A9F4"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Registrar Residencias"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="30dp">
+
+        <EditText
+            android:id="@+id/numeroControlR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Numero de control"
+            android:text=""/>
+
+        <EditText
+            android:id="@+id/nombreR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Nombre de Alumno"/>
+
+
+        android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/carreraR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Carrera"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Semestre"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/semestreR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre de la Empresa"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/LugarR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Encargado"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/ProyectoR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripcion del Proyecto"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/ProyectoD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+        <Spinner
+            android:id="@+id/spinnerSemestres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/numSemestres"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:textSize="23dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/btnRegistro"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#00F334"
+            android:text="Registrar  Residencia" />
+
+        <Button
+            android:id="@+id/btnRegresar"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#F44336"
+            android:text="Salir" />
+
+    </LinearLayout>
+
+</LinearLayout>
