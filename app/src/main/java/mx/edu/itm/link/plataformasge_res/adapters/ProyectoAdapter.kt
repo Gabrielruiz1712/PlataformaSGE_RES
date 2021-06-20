@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat.startActivity
@@ -37,6 +38,7 @@ class ProyectoAdapter(val context: Context, val layout: Int, val lista: ArrayLis
         val descripcionProyecto = miView.findViewById<TextView>(R.id.descripcionProyecto)
         val lgacProyecto = miView.findViewById<TextView>(R.id.lgacProyecto)
         val cardProyecto = miView.findViewById<CardView>(R.id.cardProyecto)
+        val btnIr = miView.findViewById<Button>(R.id.btnIrProyecto)
 
         nombreProyecto.text = lista[position].nombreProyecto
         nombreEmpresa.text = lista[position].nombreEmpresa
@@ -44,6 +46,11 @@ class ProyectoAdapter(val context: Context, val layout: Int, val lista: ArrayLis
         lgacProyecto.text = lista[position].lgac
 
         cardProyecto.setOnClickListener {
+            val intent = Intent(context, DetalleProyecto::class.java)
+            intent.putExtra("PROYECTO", lista[position])
+            context.startActivity(intent)
+        }
+        btnIr.setOnClickListener {
             val intent = Intent(context, DetalleProyecto::class.java)
             intent.putExtra("PROYECTO", lista[position])
             context.startActivity(intent)

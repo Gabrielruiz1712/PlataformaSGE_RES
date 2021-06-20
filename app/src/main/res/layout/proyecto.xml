@@ -42,6 +42,7 @@
                     android:id="@+id/nombreEmpresaProyeto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:lines="1"
                     android:text="Nombre Empresa"
                     android:textSize="20sp" />
@@ -64,7 +65,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnIrProyecto"
                 style="@style/buttonIcon"
                 android:layout_width="50dp"
                 android:layout_height="50dp"

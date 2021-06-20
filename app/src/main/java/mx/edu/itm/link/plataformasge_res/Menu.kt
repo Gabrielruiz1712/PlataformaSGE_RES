@@ -14,10 +14,11 @@ class Menu : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val alumno = intent.getStringExtra("ALUMNO")
+        val alumno = intent.getSerializableExtra("ALUMNO")
 
         binding.btnResi.setOnClickListener {
             val intent = Intent(this, MenuResidencias::class.java)
+            intent.putExtra("ALUMNO", alumno)
             startActivity(intent)
         }
     }
