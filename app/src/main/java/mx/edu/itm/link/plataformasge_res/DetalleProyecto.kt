@@ -23,10 +23,14 @@ class DetalleProyecto : AppCompatActivity() {
         binding.descripcionDetalle.text = proyecto.descripcion
 
         binding.btnQuieroEsteProyecto.setOnClickListener {
+
+            //TODO: Hacer la validacion de que si de verdad quiere este proyecto
             val intent = Intent(this, SeleccionProyecto::class.java)
             intent.putExtra("ALUMNO", alumno)
             intent.putExtra("PROYECTO", proyecto)
             startActivity(intent)
+
+            //TODO: Poner el la BD que este alumno ya selecciono proyecto
         }
 
     }

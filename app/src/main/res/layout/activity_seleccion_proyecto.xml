@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".SeleccionProyecto">
 
     <LinearLayout
@@ -12,15 +13,16 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="30dp"
+            android:gravity="center"
             android:text="Proyecto"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/nombreProyectoSeleccion"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombre proyecto"
             android:textSize="20sp" />
@@ -32,15 +34,16 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="30dp"
+            android:gravity="center"
             android:text="Empresa"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/nombreEmpresaSeleccion"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombre empresa"
             android:textSize="20sp" />
@@ -51,15 +54,16 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="30dp"
+            android:gravity="center"
             android:text="LGAC"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/lgacSeleccion"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Linea de estudio"
             android:textSize="20sp" />
@@ -67,21 +71,72 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
+            android:gravity="center"
             android:text="Asesor"
             android:textColor="#FF0000"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/asesorSeleccion"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
             android:text="Asesor aleatorio"
             android:textSize="20sp" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="Status"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/cursandoProyecto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#4CAF50"
+            android:text="Seleccionado"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion de actividades"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/descripcionSeleccionado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:text="Cursando"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agregar reporte" />
+
 
 </LinearLayout>

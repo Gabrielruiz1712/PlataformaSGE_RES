@@ -17,6 +17,10 @@ class AgregarDependencia : AppCompatActivity() {
         binding.numeroControlR.setText(alumno.nc)
         binding.nombreR.setText("${alumno.nombre} ${alumno.apellidos}")
 
-        //TODO: Hacer todo lo relacionado con la alta de dependencia en la BD
+        binding.btnRegistro.setOnClickListener {
+
+            //TODO: Hacer todo lo relacionado con la alta de dependencia en la BD
+        }
+
     }
 }

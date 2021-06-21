@@ -27,10 +27,13 @@ class SeleccionProyecto : AppCompatActivity() {
         binding.nombreProyectoSeleccion.text = proyecto.nombreProyecto
         binding.nombreEmpresaSeleccion.text = proyecto.nombreEmpresa
         binding.lgacSeleccion.text = proyecto.lgac
+        binding.descripcionSeleccionado.text = proyecto.descripcion
 
         //TODO: esto se va a hacer con un join cuando sea BD
         val profesoresDeLinea = ArrayList<Profesore>()
+
         for (p in bd.profesores) {
+            //Si la linea del profesor es igual a la linea del proyecto
             if (p.linea == proyecto.lgac) {
                 profesoresDeLinea.add(p)
             }
