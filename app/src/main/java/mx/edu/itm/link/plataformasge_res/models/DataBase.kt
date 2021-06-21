@@ -10,5 +10,7 @@ data class DataBase(
     @SerializedName("profesores")
     val profesores: ArrayList<Profesore>,
     @SerializedName("alumnos")
-    val alumnos: ArrayList<Alumno>
+    val alumnos: ArrayList<Alumno>,
+    @SerializedName("dependenciaPorAprobar")
+    val dependenciasPorAprobar: ArrayList<DependenciasPorAprobar>
 ): Serializable

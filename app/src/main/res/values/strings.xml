@@ -13,6 +13,18 @@
 
     <string name="baseDatos">
       {
+      "dependenciaPorAprobar":[
+          {
+            "id":1,
+            "idAlumnoRegistrador": 1,
+            "nombreEmpresa": "'Zamoris-B'",
+            "nombreProyecto":"'Montar centro de comunicaciones interestelar'",
+            "descripcionDelProyecto": "'Terminar con una plaga de reptiles radioactivos'",
+            "aprobado": false,
+            "lgac":"'Energías alternativas del espacio'"
+          }
+
+        ],
         "proyectos": [
           {
             "id": 1,
