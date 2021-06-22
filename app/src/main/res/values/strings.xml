@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PlataformaSGE_RES</string>
+    <string name="app_name">SGE</string>
 
   <string-array name="numSemestres">
     <item>Semestre 1</item>

@@ -1,12 +1,15 @@
 package mx.edu.itm.link.plataformasge_res
 
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.google.gson.Gson
+import mx.edu.itm.link.plataformasge_res.databinding.ActivityMainBinding
 import mx.edu.itm.link.plataformasge_res.databinding.ActivityMenuBinding
-
+import mx.edu.itm.link.plataformasge_res.models.DataBase
 
 class Menu : AppCompatActivity() {
+
     private lateinit var binding: ActivityMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +17,9 @@ class Menu : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //No encuentro el error, no me deja abrir el Menu de residencias
         val alumno = intent.getSerializableExtra("ALUMNO")
+
 
         binding.btnResi.setOnClickListener {
             val intent = Intent(this, MenuResidencias::class.java)

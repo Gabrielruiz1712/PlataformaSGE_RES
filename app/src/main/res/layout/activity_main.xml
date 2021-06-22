@@ -50,7 +50,8 @@
         android:id="@+id/btnLogin"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Ingrese"
-        android:layout_gravity="center"/>
+        android:text="Ingresar"
+        android:layout_gravity="center"
+        android:background="@drawable/botones_1"/>
 
 </LinearLayout>

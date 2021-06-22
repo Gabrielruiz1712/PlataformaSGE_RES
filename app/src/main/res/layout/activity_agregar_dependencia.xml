@@ -84,7 +84,7 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#00F334"
+            android:background="@drawable/botones_1"
             android:text="Registrar Proyecto" />
 
     </LinearLayout>
