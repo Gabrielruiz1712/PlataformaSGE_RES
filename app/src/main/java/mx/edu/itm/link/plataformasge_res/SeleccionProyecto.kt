@@ -5,8 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
+import mx.edu.itm.link.plataformasge_res.adapters.ActividadAdapter
 import mx.edu.itm.link.plataformasge_res.databinding.ActivityDetalleProyectoBinding
 import mx.edu.itm.link.plataformasge_res.databinding.ActivitySeleccionProyectoBinding
+import mx.edu.itm.link.plataformasge_res.models.ActividadReporte
 import mx.edu.itm.link.plataformasge_res.models.DataBase
 import mx.edu.itm.link.plataformasge_res.models.Profesore
 import mx.edu.itm.link.plataformasge_res.models.Proyecto
@@ -50,6 +52,21 @@ class SeleccionProyecto : AppCompatActivity() {
         binding.btnAgregarReporteSeleccion.setOnClickListener {
             val intent = Intent(this, Reporte::class.java)
             startActivity(intent)
+        }
+
+        //TODO: Traer  reportes de la BD
+
+        val list = Menu.alumnoLogeado.reportes[0].actividadReporte
+
+        binding.lvReportes.adapter = object : ActividadAdapter(this, R.layout.actividad_reporte, list){
+            override fun deleteActividad(actividadReporte: ActividadReporte) {
+                TODO("Not yet implemented")
+            }
+
+            override fun editActividad(actividadReporte: ActividadReporte) {
+                TODO("Not yet implemented")
+            }
+
         }
     }
 }

@@ -19,19 +19,5 @@ class Reporte : AppCompatActivity() {
         val bdString = resources.getString(R.string.baseDatos)
         val bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
 
-        //TODO: Traer  reportes de la BD
-
-        val list = Menu.alumnoLogeado.reportes[0].actividadReporte
-
-        binding.lvTareasReporte.adapter = object : ActividadAdapter(this, R.layout.actividad_reporte, list){
-            override fun deleteActividad(actividadReporte: ActividadReporte) {
-                TODO("Not yet implemented")
-            }
-
-            override fun editActividad(actividadReporte: ActividadReporte) {
-                TODO("Not yet implemented")
-            }
-
-        }
     }
 }
