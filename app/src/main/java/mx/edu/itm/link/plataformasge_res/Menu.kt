@@ -3,11 +3,8 @@ package mx.edu.itm.link.plataformasge_res
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.gson.Gson
-import mx.edu.itm.link.plataformasge_res.databinding.ActivityMainBinding
 import mx.edu.itm.link.plataformasge_res.databinding.ActivityMenuBinding
 import mx.edu.itm.link.plataformasge_res.models.Alumno
-import mx.edu.itm.link.plataformasge_res.models.DataBase
 
 class Menu : AppCompatActivity() {
 
@@ -24,12 +21,11 @@ class Menu : AppCompatActivity() {
         setContentView(binding.root)
 
         //No encuentro el error, no me deja abrir el Menu de residencias
-        val alumnoLogeado = intent.getSerializableExtra("ALUMNO")
-
-
+        val alumno = intent.getSerializableExtra("ALUMNO")
+        alumnoLogeado = alumno as Alumno
         binding.btnResi.setOnClickListener {
             val intent = Intent(this, MenuResidencias::class.java)
-            intent.putExtra("ALUMNO", alumnoLogeado)
+            intent.putExtra("ALUMNO", alumno)
             startActivity(intent)
         }
     }

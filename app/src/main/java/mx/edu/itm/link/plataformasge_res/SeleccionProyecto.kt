@@ -1,6 +1,7 @@
 package mx.edu.itm.link.plataformasge_res
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -44,8 +45,11 @@ class SeleccionProyecto : AppCompatActivity() {
 
         //TODO: Aca se debe seleccionar un profe disponible y luego setearlo como no disponible en la BD
         val profesorSeleccionado = profesoresDeLinea.random()
-        binding.asesorSeleccion.text =
-            "${profesorSeleccionado.nombre}\n${profesorSeleccionado.titulo}"
+        binding.asesorSeleccion.text = "${profesorSeleccionado.nombre}\n${profesorSeleccionado.titulo}"
 
+        binding.btnAgregarReporteSeleccion.setOnClickListener {
+            val intent = Intent(this, Reporte::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -103,12 +103,14 @@
               {
                 "parte": 1,
                 "version": 1,
-                "aprovado": true
+                "aprovado": true,
+                "actividadReporte":[]
               },
               {
                 "parte": 2,
                 "version": 1,
-                "aprovado": false
+                "aprovado": false,
+                "actividadReporte":[]
               }
             ]
           },
@@ -121,7 +123,8 @@
               {
                 "parte": 1,
                 "version": 1,
-                "aprovado": true
+                "aprovado": true,
+                "actividadReporte":[]
               }
             ]
           }
