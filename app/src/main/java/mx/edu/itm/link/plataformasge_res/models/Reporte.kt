@@ -1,6 +1,5 @@
 package mx.edu.itm.link.plataformasge_res.models
 
-
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
@@ -10,5 +9,7 @@ data class Reporte(
     @SerializedName("version")
     val version: Int,
     @SerializedName("aprovado")
-    val aprovado: Boolean
-): Serializable
+    val aprovado: Boolean,
+    @SerializedName("actividadReporte")
+    val actividadReporte: ArrayList<ActividadReporte>
+) : Serializable

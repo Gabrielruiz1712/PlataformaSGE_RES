@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">SGE</string>
 
-  <string-array name="numSemestres">
-    <item>Semestre 1</item>
-    <item>Semestre 2</item>
-    <item>Semestre 3</item>
-    <item>Semestre 4</item>
-    <item>Semestre 5</item>
-    <item>Semestre 6</item>
-    <item>Semestre 7</item>
-  </string-array>
+    <string-array name="numSemestres">
+        <item>Semestre 1</item>
+        <item>Semestre 2</item>
+        <item>Semestre 3</item>
+        <item>Semestre 4</item>
+        <item>Semestre 5</item>
+        <item>Semestre 6</item>
+        <item>Semestre 7</item>
+    </string-array>
 
     <string name="baseDatos">
       {
-      "dependenciaPorAprobar":[
+        "dependenciaPorAprobar":[
           {
             "id":1,
             "idAlumnoRegistrador": 1,
@@ -36,7 +36,7 @@
           {
             "id": 2,
             "nombreProyecto": "'Energia desconocida procedente del Ether'",
-            "nombreEmpresa": "'Energy Mars and quantum computing'",
+            "nombreEmpresa": "'Energy Mars y quantum computing'",
             "descripcion": "'Liderar una flotilla de ingenieros de energia con el fin de obtener informacion sobre esa fuente desconocida'",
             "lgac": "'Energías alternativas del espacio'"
           },
@@ -84,7 +84,13 @@
               {
                 "parte": 1,
                 "version": 1,
-                "aprovado": false
+                "aprovado": false,
+                "actividadReporte":[
+                  {
+                    "titulo": "'Me pusieron a trapear :v'",
+                    "descripcion":"'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'"
+                  }
+                ]
               }
             ]
           },

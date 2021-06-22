@@ -1,8 +1,8 @@
 package mx.edu.itm.link.plataformasge_res.models
 
-
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+
 
 data class Alumno(
     @SerializedName("nombre")
@@ -15,4 +15,4 @@ data class Alumno(
     val pass: String,
     @SerializedName("reportes")
     val reportes: ArrayList<Reporte>
-):Serializable
+) :Serializable

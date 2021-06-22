@@ -1,9 +1,9 @@
 package mx.edu.itm.link.plataformasge_res.models
 
-
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-data class DependenciasPorAprobar(
+data class DependenciaPorAprobar(
     @SerializedName("id")
     val id: Int,
     @SerializedName("idAlumnoRegistrador")
@@ -18,4 +18,4 @@ data class DependenciasPorAprobar(
     val aprobado: Boolean,
     @SerializedName("lgac")
     val lgac: String
-)
+) : Serializable
