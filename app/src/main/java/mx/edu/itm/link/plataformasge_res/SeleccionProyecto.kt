@@ -1,5 +1,6 @@
 package mx.edu.itm.link.plataformasge_res
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -12,6 +13,7 @@ import java.util.logging.Logger
 
 class SeleccionProyecto : AppCompatActivity() {
     private lateinit var binding: ActivitySeleccionProyectoBinding
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySeleccionProyectoBinding.inflate(layoutInflater)
