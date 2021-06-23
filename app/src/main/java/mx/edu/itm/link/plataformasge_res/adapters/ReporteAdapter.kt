@@ -1,16 +1,19 @@
 package mx.edu.itm.link.plataformasge_res.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import mx.edu.itm.link.plataformasge_res.R
 import mx.edu.itm.link.plataformasge_res.models.Reporte
 
-abstract class ActividadAdapter(
+abstract class ReporteAdapter(
     val context: Context,
     val layout: Int,
     val lista: ArrayList<Reporte>
@@ -27,6 +30,7 @@ abstract class ActividadAdapter(
         return -1
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val miView = inflater.inflate(layout, null)
@@ -36,6 +40,12 @@ abstract class ActividadAdapter(
 
         val btnDeleteActividad = miView.findViewById<Button>(R.id.btnDeleteActividad)
         val btnEditActividad = miView.findViewById<Button>(R.id.btnEditActividadReporte)
+
+        val card = miView.findViewById<CardView>(R.id.cardActividadReporte)
+
+        if (!lista[position].aprovado){
+            card.setCardBackgroundColor(R.color.red)
+        }
 
         titulo.text = lista[position].titulo
         descipcion.text = lista[position].descripcion
