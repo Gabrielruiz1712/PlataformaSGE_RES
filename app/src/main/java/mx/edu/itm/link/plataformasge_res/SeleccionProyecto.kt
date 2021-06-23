@@ -22,7 +22,7 @@ class SeleccionProyecto : AppCompatActivity() {
 
 
 
-        val alumno = intent.getSerializableExtra("ALUMNO")
+        val alumno = Menu.alumnoLogeado
         val proyecto = intent.getSerializableExtra("PROYECTO") as Proyecto
 
         binding.nombreProyectoSeleccion.text = proyecto.nombreProyecto
@@ -60,6 +60,17 @@ class SeleccionProyecto : AppCompatActivity() {
 
         }
 
+
+        var numReportes = 0
+        for (r in Menu.alumnoLogeado.reportes){
+            if (r.aprovado){
+                numReportes++
+            }
+        }
+
+        if (numReportes == 3){
+            binding.btnAgregarReporteSeleccion.isEnabled = false
+        }
         binding.btnAgregarReporteSeleccion.setOnClickListener {
             val intent = Intent(this, ReporteActivity::class.java)
             startActivity(intent)

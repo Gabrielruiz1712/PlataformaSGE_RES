@@ -1,6 +1,7 @@
 package mx.edu.itm.link.plataformasge_res
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import mx.edu.itm.link.plataformasge_res.databinding.ActivityReporteBinding
@@ -24,8 +25,11 @@ class ReporteActivity : AppCompatActivity() {
             val descripcion = binding.editDescripcion.text.toString()
             val r = Reporte(false, titulo, descripcion)
 
-            //TODO: Subir reporte a la BD
+            Menu.alumnoLogeado.reportes.add(r)
 
+            Toast.makeText(this, "Se agrego con exito", Toast.LENGTH_SHORT).show()
+
+            finish()
         }
 
     }
