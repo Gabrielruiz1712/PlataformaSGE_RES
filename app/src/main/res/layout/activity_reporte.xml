@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".Reporte">
+    tools:context=".ReporteActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -31,10 +31,10 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Dede fecha" />
+            android:text="Titulo" />
 
         <EditText
-            android:id="@+id/horaEntrada"
+            android:id="@+id/tituloReporte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -45,21 +45,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Hasta fecha" />
-
-        <EditText
-            android:id="@+id/horaSalida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="time" />
-
-    </LinearLayout>
+        android:orientation="horizontal"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -74,10 +60,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            app:srcCompat="@drawable/check" />
 
         <EditText
-            android:id="@+id/editTextTextMultiLine"
+            android:id="@+id/editDescripcion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"

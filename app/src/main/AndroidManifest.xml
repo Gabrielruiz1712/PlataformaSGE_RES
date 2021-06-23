@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PlataformaSGE_RES">
-        <activity android:name=".Reporte"></activity>
+        <activity android:name=".ReporteActivity" />
         <activity android:name=".Menu" />
         <activity android:name=".MenuResidencias" />
         <activity android:name=".DetalleProyecto" />
         <activity android:name=".SeleccionProyecto" />
+        <activity android:name=".AgregarDependencia" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -40,16 +40,6 @@
             android:layout_marginBottom="20dp"
             android:hint="Nombre de Alumno"/>
 
-
-        android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/carreraR"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Carrera"/>
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

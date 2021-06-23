@@ -13,17 +13,16 @@
 
     <string name="baseDatos">
       {
-        "dependenciaPorAprobar":[
+        "dependenciaPorAprobar": [
           {
-            "id":1,
+            "id": 1,
             "idAlumnoRegistrador": 1,
             "nombreEmpresa": "'Zamoris-B'",
-            "nombreProyecto":"'Montar centro de comunicaciones interestelar'",
+            "nombreProyecto": "'Montar centro de comunicaciones interestelar'",
             "descripcionDelProyecto": "'Terminar con una plaga de reptiles radioactivos'",
             "aprobado": false,
-            "lgac":"'Energías alternativas del espacio'"
+            "lgac": "'Energías alternativas del espacio'"
           }
-
         ],
         "proyectos": [
           {
@@ -79,18 +78,12 @@
             "nombre": "'Emmanuel'",
             "apellidos": "'Esquivel Pardo'",
             "nc": "'18120215'",
-            "pass":"'123'",
+            "pass": "'123'",
             "reportes": [
               {
-                "parte": 1,
-                "version": 1,
                 "aprovado": false,
-                "actividadReporte":[
-                  {
-                    "titulo": "'Me pusieron a trapear :v'",
-                    "descripcion":"'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'"
-                  }
-                ]
+                "titulo": "'Me pusieron a trapear :v'",
+                "descripcion": "'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'"
               }
             ]
           },
@@ -98,19 +91,16 @@
             "nombre": "'Alberto'",
             "apellidos": "'Oseguera'",
             "nc": "'17121095'",
-            "pass":"'123'",
+            "pass": "'123'",
             "reportes": [
               {
-                "parte": 1,
-                "version": 1,
-                "aprovado": true,
-                "actividadReporte":[]
+                "titulo": "'Me pusieron a trapear :v'",
+                "descripcion": "'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'"
               },
               {
-                "parte": 2,
-                "version": 1,
                 "aprovado": false,
-                "actividadReporte":[]
+                "titulo": "'Me pusieron a trapear :v'",
+                "descripcion": "'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'"
               }
             ]
           },
@@ -118,18 +108,18 @@
             "nombre": "'Gabriel'",
             "apellidos": "'Ruiz'",
             "nc": "'17121102'",
-            "pass":"'123'",
+            "pass": "'123'",
             "reportes": [
               {
-                "parte": 1,
-                "version": 1,
-                "aprovado": true,
-                "actividadReporte":[]
+                "aprovado": false,
+                "titulo": "'Me pusieron a trapear :v'",
+                "descripcion": "'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'"
               }
             ]
           }
         ]
       }
+
 
 
     </string>

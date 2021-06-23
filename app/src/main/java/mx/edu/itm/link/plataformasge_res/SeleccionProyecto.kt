@@ -5,14 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
-import mx.edu.itm.link.plataformasge_res.adapters.ActividadAdapter
-import mx.edu.itm.link.plataformasge_res.databinding.ActivityDetalleProyectoBinding
+import mx.edu.itm.link.plataformasge_res.adapters.ReporteAdapter
 import mx.edu.itm.link.plataformasge_res.databinding.ActivitySeleccionProyectoBinding
-import mx.edu.itm.link.plataformasge_res.models.ActividadReporte
 import mx.edu.itm.link.plataformasge_res.models.DataBase
 import mx.edu.itm.link.plataformasge_res.models.Profesore
 import mx.edu.itm.link.plataformasge_res.models.Proyecto
-import java.util.logging.Logger
+import mx.edu.itm.link.plataformasge_res.models.Reporte
 
 class SeleccionProyecto : AppCompatActivity() {
     private lateinit var binding: ActivitySeleccionProyectoBinding
@@ -22,9 +20,7 @@ class SeleccionProyecto : AppCompatActivity() {
         binding = ActivitySeleccionProyectoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Base de datos
-        val bdString = resources.getString(R.string.baseDatos)
-        val bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
+
 
         val alumno = intent.getSerializableExtra("ALUMNO")
         val proyecto = intent.getSerializableExtra("PROYECTO") as Proyecto
@@ -37,7 +33,7 @@ class SeleccionProyecto : AppCompatActivity() {
         //TODO: esto se va a hacer con un join cuando sea BD
         val profesoresDeLinea = ArrayList<Profesore>()
 
-        for (p in bd.profesores) {
+        for (p in Menu.bd.profesores) {
             //Si la linea del profesor es igual a la linea del proyecto
             if (p.linea == proyecto.lgac) {
                 profesoresDeLinea.add(p)
@@ -49,24 +45,24 @@ class SeleccionProyecto : AppCompatActivity() {
         val profesorSeleccionado = profesoresDeLinea.random()
         binding.asesorSeleccion.text = "${profesorSeleccionado.nombre}\n${profesorSeleccionado.titulo}"
 
-        binding.btnAgregarReporteSeleccion.setOnClickListener {
-            val intent = Intent(this, Reporte::class.java)
-            startActivity(intent)
-        }
-
         //TODO: Traer  reportes de la BD
 
-        val list = Menu.alumnoLogeado.reportes[0].actividadReporte
+        val list = Menu.alumnoLogeado.reportes
 
-        binding.lvReportes.adapter = object : ActividadAdapter(this, R.layout.actividad_reporte, list){
-            override fun deleteActividad(actividadReporte: ActividadReporte) {
+        binding.lvReportes.adapter = object : ReporteAdapter(this, R.layout.actividad_reporte, list){
+            override fun deleteActividad(actividadReporte: Reporte) {
                 TODO("Not yet implemented")
             }
 
-            override fun editActividad(actividadReporte: ActividadReporte) {
+            override fun editActividad(actividadReporte: Reporte) {
                 TODO("Not yet implemented")
             }
 
+        }
+
+        binding.btnAgregarReporteSeleccion.setOnClickListener {
+            val intent = Intent(this, ReporteActivity::class.java)
+            startActivity(intent)
         }
     }
 }

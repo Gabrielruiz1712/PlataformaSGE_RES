@@ -8,12 +8,12 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
 import mx.edu.itm.link.plataformasge_res.R
-import mx.edu.itm.link.plataformasge_res.models.ActividadReporte
+import mx.edu.itm.link.plataformasge_res.models.Reporte
 
 abstract class ActividadAdapter(
     val context: Context,
     val layout: Int,
-    val lista: ArrayList<ActividadReporte>
+    val lista: ArrayList<Reporte>
 ) : BaseAdapter() {
     override fun getCount(): Int {
         return lista.size
@@ -50,6 +50,6 @@ abstract class ActividadAdapter(
         return miView
     }
 
-    abstract fun deleteActividad(actividadReporte: ActividadReporte)
-    abstract fun editActividad(actividadReporte: ActividadReporte)
+    abstract fun deleteActividad(actividadReporte: Reporte)
+    abstract fun editActividad(actividadReporte: Reporte)
 }
