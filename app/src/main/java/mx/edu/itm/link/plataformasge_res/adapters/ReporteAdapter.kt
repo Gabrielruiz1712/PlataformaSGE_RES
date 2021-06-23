@@ -43,7 +43,7 @@ abstract class ReporteAdapter(
 
         val card = miView.findViewById<CardView>(R.id.cardActividadReporte)
 
-        if (!lista[position].aprovado){
+        if (lista[position].aprovado >= 3){
             card.setCardBackgroundColor(R.color.red)
         }
 

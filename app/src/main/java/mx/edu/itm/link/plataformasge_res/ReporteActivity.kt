@@ -23,7 +23,7 @@ class ReporteActivity : AppCompatActivity() {
 
             val titulo = binding.tituloReporte.text.toString()
             val descripcion = binding.editDescripcion.text.toString()
-            val r = Reporte(false, titulo, descripcion)
+            val r = Reporte(0,0, titulo, descripcion, Menu.alumnoLogeado.id)
 
             Menu.alumnoLogeado.reportes.add(r)
 

@@ -13,114 +13,105 @@
 
     <string name="baseDatos">
       {
-        "dependenciaPorAprobar": [
-          {
-            "id": 1,
-            "idAlumnoRegistrador": 1,
-            "nombreEmpresa": "'Zamoris-B'",
-            "nombreProyecto": "'Montar centro de comunicaciones interestelar'",
-            "descripcionDelProyecto": "'Terminar con una plaga de reptiles radioactivos'",
-            "aprobado": false,
-            "lgac": "'Energías alternativas del espacio'"
-          }
-        ],
-        "proyectos": [
-          {
-            "id": 1,
-            "nombreProyecto": "'Reclutar aliens'",
-            "nombreEmpresa": "'Area 51'",
-            "descripcion": "'Reclutar cientificos del planeta X12.0 para aplicaciones de intervuelo'",
-            "lgac": "'ciencias del universo'"
-          },
-          {
-            "id": 2,
-            "nombreProyecto": "'Energia desconocida procedente del Ether'",
-            "nombreEmpresa": "'Energy Mars y quantum computing'",
-            "descripcion": "'Liderar una flotilla de ingenieros de energia con el fin de obtener informacion sobre esa fuente desconocida'",
-            "lgac": "'Energías alternativas del espacio'"
-          },
-          {
-            "id": 3,
-            "nombreProyecto": "'Diccionario para entender a mi novia'",
-            "nombreEmpresa": "'IT-Morelia'",
-            "descripcion": "'Redactar una guia eficaz dirigida al Emmanuel para desbloquear el tope del conocimiento humano'",
-            "lgac": "'Redaccion y filosofía profunda'"
-          }
-        ],
-        "profesores": [
-          {
-            "id": 1,
-            "linea": "'ciencias del universo'",
-            "nombre": "'Carol Aidee'",
-            "titulo": "'Ing. ciencias del universo'"
-          },
-          {
-            "id": 2,
-            "nombre": "'Alejandro Amaro'",
-            "linea": "'Energías alternativas del espacio'",
-            "titulo": "'Ing. de energia obscura'"
-          },
-          {
-            "id": 3,
-            "nombre": "'Raymundo'",
-            "linea": "'Redaccion y filosofía profunda'",
-            "titulo": "'Lic. Redaccion y filosofía profunda'"
-          },
-          {
-            "id": 4,
-            "nombre": "'Abel Pintor'",
-            "linea": "'Energías alternativas del espacio'",
-            "titulo": "'Ing. de energia obscura'"
-          }
-        ],
-        "alumnos": [
-          {
-            "nombre": "'Emmanuel'",
-            "apellidos": "'Esquivel Pardo'",
-            "nc": "'18120215'",
-            "pass": "'123'",
-            "reportes": [
-              {
-                "aprovado": false,
-                "titulo": "'Me pusieron a trapear :v'",
-                "descripcion": "'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'"
-              }
-            ]
-          },
-          {
-            "nombre": "'Alberto'",
-            "apellidos": "'Oseguera'",
-            "nc": "'17121095'",
-            "pass": "'123'",
-            "reportes": [
-              {
-                "titulo": "'Me pusieron a trapear :v'",
-                "descripcion": "'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'"
-              },
-              {
-                "aprovado": false,
-                "titulo": "'Me pusieron a trapear :v'",
-                "descripcion": "'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'"
-              }
-            ]
-          },
-          {
-            "nombre": "'Gabriel'",
-            "apellidos": "'Ruiz'",
-            "nc": "'17121102'",
-            "pass": "'123'",
-            "reportes": [
-              {
-                "aprovado": false,
-                "titulo": "'Me pusieron a trapear :v'",
-                "descripcion": "'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'"
-              }
-            ]
-          }
-        ]
-      }
+      "dependenciaPorAprobar": [
+        {
+          "id": 1,
+          "idAlumnoRegistrador": 1,
+          "nombreEmpresa": "'Zamoris-B'",
+          "nombreProyecto": "'Montar centro de comunicaciones interestelar'",
+          "descripcionDelProyecto": "'Terminar con una plaga de reptiles radioactivos'",
+          "aprobado": false,
+          "lgac": "'Energías alternativas del espacio'"
+        }
+      ],
+      "proyectos": [
+        {
+          "id": 1,
+          "nombreProyecto": "'Reclutar aliens'",
+          "nombreEmpresa": "'Area 51'",
+          "descripcion": "'Reclutar cientificos del planeta X12.0 para aplicaciones de intervuelo'",
+          "lgac": "'ciencias del universo'"
+        },
+        {
+          "id": 2,
+          "nombreProyecto": "'Energia desconocida procedente del Ether'",
+          "nombreEmpresa": "'Energy Mars y quantum computing'",
+          "descripcion": "'Liderar una flotilla de ingenieros de energia con el fin de obtener informacion sobre esa fuente desconocida'",
+          "lgac": "'Energías alternativas del espacio'"
+        },
+        {
+          "id": 3,
+          "nombreProyecto": "'Diccionario para entender a mi novia'",
+          "nombreEmpresa": "'IT-Morelia'",
+          "descripcion": "'Redactar una guia eficaz dirigida al Emmanuel para desbloquear el tope del conocimiento humano'",
+          "lgac": "'Redaccion y filosofía profunda'"
+        }
+      ],
+      "profesores": [
+        {
+          "id": 1,
+          "linea": "'ciencias del universo'",
+          "nombre": "'Carol Aidee'",
+          "titulo": "'Ing. ciencias del universo'"
+        },
+        {
+          "id": 2,
+          "nombre": "'Alejandro Amaro'",
+          "linea": "'Energías alternativas del espacio'",
+          "titulo": "'Ing. de energia obscura'"
+        },
+        {
+          "id": 3,
+          "nombre": "'Raymundo'",
+          "linea": "'Redaccion y filosofía profunda'",
+          "titulo": "'Lic. Redaccion y filosofía profunda'"
+        },
+        {
+          "id": 4,
+          "nombre": "'Abel Pintor'",
+          "linea": "'Energías alternativas del espacio'",
+          "titulo": "'Ing. de energia obscura'"
+        }
+      ],
+      "alumnos": [
+        {
+          "id":1,
+          "nombre": "'Emmanuel'",
+          "apellidos": "'Esquivel Pardo'",
+          "nc": "'18120215'",
+          "pass": "'123'",
+          "reportes": [
+            {
+              "id":1,
+              "aprovado": 0,
+              "titulo": "'Me pusieron a trapear :v'",
+              "descripcion": "'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire'",
+              "alumno": 1
+            }
+          ]
+        },
+        {
+          "id":2,
+          "nombre": "'Alberto'",
+          "apellidos": "'Oseguera'",
+          "nc": "'17121095'",
+          "pass": "'123'",
+          "reportes": [
 
+          ]
+        },
+        {
+          "id":3,
+          "nombre": "'Gabriel'",
+          "apellidos": "'Ruiz'",
+          "nc": "'17121102'",
+          "pass": "'123'",
+          "reportes": [
 
+          ]
+        }
+      ]
+    }
 
     </string>
 </resources>

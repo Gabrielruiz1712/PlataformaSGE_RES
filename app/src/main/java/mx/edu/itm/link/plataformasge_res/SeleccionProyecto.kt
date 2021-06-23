@@ -47,7 +47,7 @@ class SeleccionProyecto : AppCompatActivity() {
 
         //TODO: Traer  reportes de la BD
 
-        val list = Menu.alumnoLogeado.reportes
+        val list = Utils.daoReporte.getReportes(alumno)
 
         binding.lvReportes.adapter = object : ReporteAdapter(this, R.layout.actividad_reporte, list){
             override fun deleteActividad(actividadReporte: Reporte) {
@@ -63,7 +63,7 @@ class SeleccionProyecto : AppCompatActivity() {
 
         var numReportes = 0
         for (r in Menu.alumnoLogeado.reportes){
-            if (r.aprovado){
+            if (r.aprovado < 3){
                 numReportes++
             }
         }

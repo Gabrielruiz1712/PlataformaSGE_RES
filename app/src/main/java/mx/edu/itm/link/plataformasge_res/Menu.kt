@@ -28,10 +28,13 @@ class Menu : AppCompatActivity() {
         val bdString = resources.getString(R.string.baseDatos)
         bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
 
+        //TODO: "Cambiar esta parte del JSON por la parte de la BD"
+
         //No encuentro el error, no me deja abrir el Menu de residencias
         val alumno = intent.getSerializableExtra("ALUMNO")
 
         alumnoLogeado = alumno as Alumno
+
         binding.btnResi.setOnClickListener {
             val intent = Intent(this, MenuResidencias::class.java)
             intent.putExtra("ALUMNO", alumno)

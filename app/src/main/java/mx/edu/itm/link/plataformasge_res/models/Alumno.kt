@@ -5,6 +5,8 @@ import java.io.Serializable
 
 
 data class Alumno(
+    @SerializedName("id")
+    val id: Int,
     @SerializedName("nombre")
     val nombre: String,
     @SerializedName("apellidos")
@@ -14,5 +16,5 @@ data class Alumno(
     @SerializedName("pass")
     val pass: String,
     @SerializedName("reportes")
-    val reportes: ArrayList<Reporte>
+    var reportes: ArrayList<Reporte>
 ) :Serializable
