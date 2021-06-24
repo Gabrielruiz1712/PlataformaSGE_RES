@@ -25,8 +25,8 @@ class Menu : AppCompatActivity() {
         setContentView(binding.root)
 
         //Base de datos
-        val bdString = resources.getString(R.string.baseDatos)
-        bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
+        //val bdString = resources.getString(R.string.baseDatos)
+        //bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
 
         //TODO: "Cambiar esta parte del JSON por la parte de la BD"
 
