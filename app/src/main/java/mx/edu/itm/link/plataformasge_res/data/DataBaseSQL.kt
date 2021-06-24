@@ -1,11 +1,10 @@
 package mx.edu.itm.link.plataformasge_res.data
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import mx.edu.itm.link.plataformasge_res.Utils
-import mx.edu.itm.link.plataformasge_res.models.Alumno
-import mx.edu.itm.link.plataformasge_res.models.Reporte
+import mx.edu.itm.link.plataformasge_res.models.*
 import java.lang.Exception
 
 class DataBaseSQL(
@@ -296,4 +295,138 @@ class DataBaseSQL(
 
         db.close()
     }
+
+    //--------------------Profesor------------------------
+
+    @Throws
+    fun getProfesores(): ArrayList<Profesore> {
+        val db = readableDatabase
+
+        val sql = "select idProfesor, linea, nombre, titulo from profesor"
+
+        val cursor = db.rawQuery(sql, null)
+
+        val resultados = ArrayList<Profesore>()
+        while (cursor.moveToNext()) {
+            val clase = Profesore(
+                cursor.getInt(0),
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3),
+            )
+
+            resultados.add(clase)
+        }
+        db.close()
+
+        return resultados
+    }
+
+    //--------------------Proyecto------------------------
+    @Throws
+    fun altaProyecto(p: Proyecto) {
+        val db = writableDatabase
+
+        val sql =
+            "insert into proyecto (nombre, empresa, descripcion, lgac) values ('${p.nombreProyecto}', '${p.nombreEmpresa}', '${p.descripcion}', '${p.lgac}',)"
+
+        db.execSQL(sql)
+
+        db.close()
+    }
+
+    @Throws
+    fun getProyectos(): ArrayList<Proyecto> {
+        val db = readableDatabase
+
+        val sql = "select idProyecto, nombre, empresa, descripcion, lgac from proyecto"
+
+        val cursor = db.rawQuery(sql, null)
+
+        val resultados = ArrayList<Proyecto>()
+        while (cursor.moveToNext()) {
+            val clase = Proyecto(
+                cursor.getInt(0),
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4),
+            )
+
+            resultados.add(clase)
+        }
+        db.close()
+
+        return resultados
+    }
+
+    @Throws
+    fun updateProyecto(p: Proyecto) {
+        val db = writableDatabase
+        val data = ContentValues()
+        data.put("nombre", p.nombreProyecto)
+        data.put("empresa", p.nombreEmpresa)
+        data.put("descripcion", p.descripcion)
+        data.put("lgac", p.lgac)
+
+        db.update("proyecto", data, "idProyecto = ?", arrayOf(p.id.toString()))
+
+        db.close ()
+    }
+
+    //--------------------Dependencia------------------------
+    @Throws
+    fun altaDependencia(d: DependenciaPorAprobar) {
+        val db = writableDatabase
+
+        val sql =
+            """
+                insert into dependencia (idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac)
+                values (1,'${d.idAlumnoRegistrador}','${d.nombreEmpresa}','${d.nombreProyecto}',${d.aprobado},'${d.lgac}');
+            """.trimIndent()
+
+        db.execSQL(sql)
+
+        db.close()
+    }
+
+    @Throws
+    fun getDependencia(): ArrayList<DependenciaPorAprobar> {
+        val db = readableDatabase
+
+        val sql = "select idDependencia, idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac from dependencia"
+
+        val cursor = db.rawQuery(sql, null)
+
+        val resultados = ArrayList<DependenciaPorAprobar>()
+        while (cursor.moveToNext()) {
+            val clase = DependenciaPorAprobar(
+                cursor.getInt(0),
+                cursor.getInt(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4),
+                cursor.getInt(5),
+                cursor.getString(6),
+            )
+
+            resultados.add(clase)
+        }
+        db.close()
+
+        return resultados
+    }
+
+    @Throws
+    fun updateDependencia(d: DependenciaPorAprobar) {
+        val db = writableDatabase
+        
+        val data = ContentValues()
+        data.put("aprovado", d.aprobado)
+
+        db.update("dependencia", data, "idDependencia = ?", arrayOf(d.id.toString()))
+
+        db.close ()
+    }
+
 }
