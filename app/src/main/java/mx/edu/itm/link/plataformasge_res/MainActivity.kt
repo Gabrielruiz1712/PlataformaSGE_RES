@@ -2,14 +2,11 @@ package mx.edu.itm.link.plataformasge_res
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
 import mx.edu.itm.link.plataformasge_res.data.DAOAlumno
 import mx.edu.itm.link.plataformasge_res.data.DAOReporte
+import mx.edu.itm.link.plataformasge_res.data.DataBase
 import mx.edu.itm.link.plataformasge_res.databinding.ActivityMainBinding
-import mx.edu.itm.link.plataformasge_res.models.Alumno
-import mx.edu.itm.link.plataformasge_res.models.DataBase
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,15 +17,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Utils.daoAlumno = DAOAlumno(this, "sge", null, 1)
-        Utils.daoReporte = DAOReporte(this, "sge", null, 1)
+        //Utils.daoAlumno = DAOAlumno(this, "sge", null, 1)
+        //Utils.daoReporte = DAOReporte(this, "sge", null, 1)
+        Utils.database = DataBase(this, "sge", null, 1)
 
         //Base de datos
         //val bdString = resources.getString(R.string.baseDatos)
         //val bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
 
 
-        val alumnos = Utils.daoAlumno.getAlumnos()
+        val alumnos = Utils.database.getAlumnos()
 
         binding.btnLogin.setOnClickListener {
             val nc = binding.noControlLogin.text.toString()

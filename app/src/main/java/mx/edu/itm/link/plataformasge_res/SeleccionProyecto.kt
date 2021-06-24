@@ -47,7 +47,7 @@ class SeleccionProyecto : AppCompatActivity() {
 
         //TODO: Traer  reportes de la BD
 
-        val list = Utils.daoReporte.getReportes(alumno)
+        val list = Utils.database.getReportes(alumno)
 
         binding.lvReportes.adapter = object : ReporteAdapter(this, R.layout.actividad_reporte, list){
             override fun deleteActividad(actividadReporte: Reporte) {
