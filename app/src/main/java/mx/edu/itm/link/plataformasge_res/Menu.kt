@@ -30,7 +30,7 @@ class Menu : AppCompatActivity() {
 
         //TODO: "Cambiar esta parte del JSON por la parte de la BD"
 
-        //No encuentro el error, no me deja abrir el Menu de residencias
+
         val alumno = intent.getSerializableExtra("ALUMNO")
 
         alumnoLogeado = alumno as Alumno
