@@ -26,26 +26,39 @@ class DetalleProyecto : AppCompatActivity() {
 
         binding.btnQuieroEsteProyecto.setOnClickListener {
 
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Estas seguro?")
-            builder.setMessage("No podrás seleccionar otro diferente mas tarde")
+            if (MainActivity.alumnoLogeado.tieneProyecto == 1) {
+                Toast.makeText(this, "Ya tienes proyecto sleccionado", Toast.LENGTH_SHORT).show()
+            } else {
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Estas seguro?")
+                builder.setMessage("No podrás seleccionar otro diferente mas tarde")
 
-            builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                val intent = Intent(this, SeleccionProyecto::class.java)
-                intent.putExtra("ALUMNO", alumno)
-                intent.putExtra("PROYECTO", proyecto)
+                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                    val intent = Intent(this, SeleccionProyecto::class.java)
+                    intent.putExtra("ALUMNO", alumno)
+                    intent.putExtra("PROYECTO", proyecto)
 
-                //TODO: Poner el la BD que este alumno ya selecciono proyecto
+                    //TODO: Poner el la BD que este alumno ya selecciono proyecto
 
-                Utils.database.updateAlumno(alumno, )
+                    alumno.tieneProyecto = 1
+                    MainActivity.alumnoLogeado.tieneProyecto = 1
+                    Utils.database.updateAlumno(alumno)
 
-                startActivity(intent)
+                    startActivity(intent)
+                    Toast.makeText(this, "Felicidades!", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+
+                builder.setNegativeButton(android.R.string.no) { dialog, which ->
+                    Toast.makeText(
+                        applicationContext,
+                        "Selecciona otro proyecto",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+                builder.show()
             }
-
-            builder.setNegativeButton(android.R.string.no) { dialog, which ->
-                Toast.makeText(applicationContext,"Selecciona otro proyecto", Toast.LENGTH_SHORT).show()
-            }
-            builder.show()
 
         }
 

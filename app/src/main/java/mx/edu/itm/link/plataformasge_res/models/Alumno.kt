@@ -16,7 +16,7 @@ data class Alumno(
     @SerializedName("pass")
     val pass: String,
     @SerializedName("tieneProyecto")
-    val tieneProyecto: Int,
+    var tieneProyecto: Int,
     @SerializedName("reportes")
     var reportes: ArrayList<Reporte>
 ) :Serializable

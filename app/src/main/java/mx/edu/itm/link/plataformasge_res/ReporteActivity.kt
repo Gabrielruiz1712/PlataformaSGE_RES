@@ -18,16 +18,19 @@ class ReporteActivity : AppCompatActivity() {
         //Base de datos
         //val bdString = resources.getString(R.string.baseDatos)
         //val bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
-                    
+
         binding.fabAddTareaReporte.setOnClickListener {
 
             val titulo = binding.tituloReporte.text.toString()
             val descripcion = binding.editDescripcion.text.toString()
-            val r = Reporte(0,0, titulo, descripcion, Menu.alumnoLogeado.id)
+            val r = Reporte(0, 0, titulo, descripcion, Menu.alumnoLogeado.id)
 
-            Menu.alumnoLogeado.reportes.add(r)
+            if (titulo != "" && descripcion != "") {
+                Menu.alumnoLogeado.reportes.add(r)
+                Utils.database.altaReporte(r, Menu.alumnoLogeado)
 
-            Toast.makeText(this, "Se agrego con exito", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Se agrego con exito", Toast.LENGTH_SHORT).show()
+            }
 
             finish()
         }

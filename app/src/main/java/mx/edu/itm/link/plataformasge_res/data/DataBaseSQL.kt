@@ -63,13 +63,15 @@ class DataBaseSQL(
             (
                 idProyecto integer not null
                     constraint proyecto_pk
-                        primary key autoincrement,
+                        primary key autoincrement
+                    references alumno,
                 nombre text not null,
                 empresa text not null,
                 descripcion text not null,
                 lgac text not null,
                 seleccionado integer default 0 not null
             );
+            
             create unique index proyecto_idProyecto_uindex
                 on proyecto (idProyecto);
         """.trimIndent()
@@ -94,9 +96,7 @@ class DataBaseSQL(
 
         //-------------------- Inserts Alumnos -------------------
         val insertAlumnos1 = """
-            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Emmanuel', 'Esquivel', '18120215', '123', 0);
-            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Alberto', 'Oseguera', '17121095', '123', 0);
-            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Gabriel', 'Ruiz', '17121102', '123', 0);
+            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Emmanuel', 'Esquivel', '18120215', '123', 1);
         """.trimIndent()
 
         val insertAlumnos2 = """
@@ -142,7 +142,7 @@ class DataBaseSQL(
         val insertProyectos3 = """
             insert into proyecto (nombre, empresa, descripcion, lgac, seleccionado) values ('Diccionario para entender a mi novia','IT-Morelia','Redactar una guia eficaz dirigida al Emmanuel para desbloquear el tope del conocimiento humano','Redaccion y filosofía profunda', 0);
         """.trimIndent()
-
+        // ------------------------INSERTS Dependencia -------------------------------------
         val insertDependencia = """
             insert into dependencia (idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac) values (1,'Zamoris-B','Montar centro de comunicaciones interestelar','Hay una plaga de reptiles radioactivos que no nos permite hacerlo, hemos delegado la mision a un becario del tec',0,'Energías alternativas del espacio');
         """.trimIndent()
@@ -150,32 +150,32 @@ class DataBaseSQL(
         try {
 
 
-        db?.let {
-            it.execSQL(alumnos)
-            it.execSQL(reporte)
-            it.execSQL(profesor)
-            it.execSQL(proyecto)
-            it.execSQL(dependencia)
+            db?.let {
+                it.execSQL(alumnos)
+                it.execSQL(reporte)
+                it.execSQL(profesor)
+                it.execSQL(proyecto)
+                it.execSQL(dependencia)
 
-            it.execSQL(insertAlumnos1)
-            it.execSQL(insertAlumnos2)
-            it.execSQL(insertAlumnos3)
+                it.execSQL(insertAlumnos1)
+                it.execSQL(insertAlumnos2)
+                it.execSQL(insertAlumnos3)
 
-            it.execSQL(insertReporte1)
-            it.execSQL(insertReporte2)
+                it.execSQL(insertReporte1)
+                it.execSQL(insertReporte2)
 
-            it.execSQL(insertProfesor1)
-            it.execSQL(insertProfesor2)
-            it.execSQL(insertProfesor3)
-            it.execSQL(insertProfesor4)
+                it.execSQL(insertProfesor1)
+                it.execSQL(insertProfesor2)
+                it.execSQL(insertProfesor3)
+                it.execSQL(insertProfesor4)
 
-            it.execSQL(insertProyectos1)
-            it.execSQL(insertProyectos2)
-            it.execSQL(insertProyectos3)
+                it.execSQL(insertProyectos1)
+                it.execSQL(insertProyectos2)
+                it.execSQL(insertProyectos3)
 
-            it.execSQL(insertDependencia)
-        }
-        }catch (e: Exception){
+                it.execSQL(insertDependencia)
+            }
+        } catch (e: Exception) {
             println("ERROR: Al dar de alta la BD")
             e.printStackTrace()
         }
@@ -355,6 +355,31 @@ class DataBaseSQL(
     }
 
     @Throws
+    fun proeyectoDeAlumnoByID(idAlumno: Int) : ArrayList<Proyecto> {
+        val db = readableDatabase
+
+        val sql =
+            "select p.idProyecto, p.nombre, p.empresa, p.descripcion, p.lgac from alumno a inner join proyecto p on a.idAlumno = p.idProyecto where a.idAlumno like ${idAlumno}; "
+
+        val cursor = db.rawQuery(sql, null)
+
+        val resultados = ArrayList<Proyecto>()
+        while (cursor.moveToNext()) {
+            val proyecto = Proyecto(
+                cursor.getInt(0),
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4)
+            )
+            resultados.add(proyecto)
+        }
+        db.close()
+
+        return resultados
+    }
+
+    @Throws
     fun getProyectos(): ArrayList<Proyecto> {
         val db = readableDatabase
 
@@ -390,7 +415,7 @@ class DataBaseSQL(
 
         db.update("proyecto", data, "idProyecto = ?", arrayOf(p.id.toString()))
 
-        db.close ()
+        db.close()
     }
 
     //--------------------Dependencia------------------------
@@ -413,7 +438,8 @@ class DataBaseSQL(
     fun getDependencia(): ArrayList<DependenciaPorAprobar> {
         val db = readableDatabase
 
-        val sql = "select idDependencia, idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac from dependencia"
+        val sql =
+            "select idDependencia, idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac from dependencia"
 
         val cursor = db.rawQuery(sql, null)
 
@@ -445,7 +471,7 @@ class DataBaseSQL(
 
         db.update("dependencia", data, "idDependencia = ?", arrayOf(d.id.toString()))
 
-        db.close ()
+        db.close()
     }
 
 }
