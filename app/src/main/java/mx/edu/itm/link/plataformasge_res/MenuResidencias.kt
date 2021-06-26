@@ -21,12 +21,14 @@ class MenuResidencias : AppCompatActivity() {
         val alumno = intent.getSerializableExtra("ALUMNO")
 
         //Base de datos
-        val bdString = resources.getString(R.string.baseDatos)
-        val bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
+        //val bdString = resources.getString(R.string.baseDatos)
+        //val bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
+
+        val bd = Utils.database
 
         //Hice el listView con herencia ya que nececitaba pasar un extra adicional que
         //   no podria traerme desde el adapter
-        binding.lvProyecto.adapter = object: ProyectoAdapter(this, R.layout.proyecto, bd.proyectos){
+        binding.lvProyecto.adapter = object: ProyectoAdapter(this, R.layout.proyecto, bd.getProyectos()){
             override fun clickItemProyecto(proyecto: Proyecto) {
                 val intent = Intent(context, DetalleProyecto::class.java)
                 intent.putExtra("PROYECTO", proyecto)

@@ -23,9 +23,9 @@ class DataBaseSQL(
                 nombre text not null,
                 apellidos text not null,
                 nc text not null,
-                pass text not null
+                pass text not null,
+                tieneProyecto integer default 0 not null
             );
-            
             create unique index alumno_idAlumno_uindex
                 on alumno (idAlumno);
         """.trimIndent()
@@ -54,10 +54,8 @@ class DataBaseSQL(
             	nombre text not null,
             	titulo text not null
             );
-
             create unique index profesor_id_uindex
             	on profesor (idProfesor);
-
         """.trimIndent()
 
         val proyecto = """
@@ -69,9 +67,9 @@ class DataBaseSQL(
                 nombre text not null,
                 empresa text not null,
                 descripcion text not null,
-                lgac text not null
+                lgac text not null,
+                seleccionado integer default 0 not null
             );
-            
             create unique index proyecto_idProyecto_uindex
                 on proyecto (idProyecto);
         """.trimIndent()
@@ -90,64 +88,67 @@ class DataBaseSQL(
                 aprobado integer default 0 not null,
                 lgac text not null
             );
-            
             create unique index dependencia_idDependencia_uindex
                 on dependencia (idDependencia);
         """.trimIndent()
 
-        //-------------------- Inserts -------------------
-        val insertAlumnos = """
-            insert into alumno (nombre, apellidos, nc, pass)
-            values ('Emmanuel', 'Esquivel', '18120215', '123');
-            
-            INSERT into alumno (nombre, apellidos, nc, pass)
-            values ('Alberto', 'Oseguera', '17121095', '123');
-            
-            insert into alumno (nombre, apellidos, nc, pass)
-            values ('Gabriel', 'Ruiz', '17121102', '123');
+        //-------------------- Inserts Alumnos -------------------
+        val insertAlumnos1 = """
+            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Emmanuel', 'Esquivel', '18120215', '123', 0);
+            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Alberto', 'Oseguera', '17121095', '123', 0);
+            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Gabriel', 'Ruiz', '17121102', '123', 0);
         """.trimIndent()
 
-        val insertReporte = """
-            insert into reporte (aprobado, titulo, descripcion, alumno)
-            values (0, 'Me pusieron a trapear :v',
-                    'Hoy no habia nada que hacer asi que me puse a trapear el yogurt que tire',
-                    1);
-            
-            insert into reporte (aprobado, titulo, descripcion, alumno)
-            values (0, 'Combati hasta que mori pero sobrevivi',
-                    'Hoy en la entrega del proyecto de la segunda unidad casi reprobamos',
-                    2);
+        val insertAlumnos2 = """
+            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Gabriel', 'Ruiz', '17121102', '123', 0);
         """.trimIndent()
 
-        val insertProfesor = """
-                insert into profesor (linea, nombre, titulo)
-                values ('ciencias del universo','Carol Aidee','Ing. ciencias del universo');
-
-                insert into profesor (linea, nombre, titulo)
-                values ('Energías alternativas del espacio','Alejandro Amaro','Ing. de energia obscura');
-
-                insert into profesor (linea, nombre, titulo)
-                values ('Redaccion y filosofía profunda','Raymundo','Lic. Redaccion y filosofía profunda');
-
-                insert into profesor (linea, nombre, titulo)
-                values ('Energías alternativas del espacio','Abel Pintor','Ing. de energia obscura');
+        val insertAlumnos3 = """
+            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Alberto', 'Oseguera', '17121095', '123', 0);
         """.trimIndent()
 
-        val insertProyectos = """
-            insert into proyecto (nombre, empresa, descripcion, lgac)
-            values ('Reclutar aliens','Area 51','Reclutar cientificos del planeta X12.0 para aplicaciones de intervuelo','ciencias del universo');
+        //--------------------------REPORTE ----------------------------------------
+        val insertReporte1 = """
+            insert into reporte (aprobado, titulo, descripcion, alumno) values (0, 'Combati hasta que mori pero sobrevivi', 'Hoy en la entrega del proyecto de la segunda unidad casi reprobamos', 2);
+        """.trimIndent()
 
-            insert into proyecto (nombre, empresa, descripcion, lgac)
-            values ('Energia desconocida procedente del Ether','Energy Mars y quantum computing','Liderar una flotilla de ingenieros de energia con el fin de obtener informacion sobre esa fuente desconocida','Energías alternativas del espacio');
+        val insertReporte2 = """
+            insert into reporte (aprobado, titulo, descripcion, alumno) values (0, 'Combati hasta que mori pero sobrevivi', 'Hoy en la entrega del proyecto de la segunda unidad casi reprobamos', 2);
+        """.trimIndent()
 
-            insert into proyecto (nombre, empresa, descripcion, lgac)
-            values ('Diccionario para entender a mi novia','IT-Morelia','Redactar una guia eficaz dirigida al Emmanuel para desbloquear el tope del conocimiento humano','Redaccion y filosofía profunda');
+        //-----------------------------INSERTS Profesor ------------------------------
+        val insertProfesor1 = """
+                insert into profesor (linea, nombre, titulo) values ('ciencias del universo','Carol Aidee','Ing. ciencias del universo');
+        """.trimIndent()
+
+        val insertProfesor2 = """
+                insert into profesor (linea, nombre, titulo) values ('Energías alternativas del espacio','Alejandro Amaro','Ing. de energia obscura');
+        """.trimIndent()
+
+        val insertProfesor3 = """
+                insert into profesor (linea, nombre, titulo) values ('Redaccion y filosofía profunda','Raymundo','Lic. Redaccion y filosofía profunda');
+        """.trimIndent()
+
+        val insertProfesor4 = """
+                insert into profesor (linea, nombre, titulo) values ('Energías alternativas del espacio','Abel Pintor','Ing. de energia obscura');
+        """.trimIndent()
+
+        val insertProyectos1 = """
+            insert into proyecto (nombre, empresa, descripcion, lgac, seleccionado) values ('Reclutar aliens','Area 51','Reclutar cientificos del planeta X12.0 para aplicaciones de intervuelo','ciencias del universo', 0);
+        """.trimIndent()
+        val insertProyectos2 = """
+            insert into proyecto (nombre, empresa, descripcion, lgac, seleccionado) values ('Energia desconocida procedente del Ether','Energy Mars y quantum computing','Liderar una flotilla de ingenieros de energia con el fin de obtener informacion sobre esa fuente desconocida','Energías alternativas del espacio', 0);
+        """.trimIndent()
+        val insertProyectos3 = """
+            insert into proyecto (nombre, empresa, descripcion, lgac, seleccionado) values ('Diccionario para entender a mi novia','IT-Morelia','Redactar una guia eficaz dirigida al Emmanuel para desbloquear el tope del conocimiento humano','Redaccion y filosofía profunda', 0);
         """.trimIndent()
 
         val insertDependencia = """
-            insert into dependencia (idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac)
-            values (1,'Zamoris-B','Montar centro de comunicaciones interestelar','Hay una plaga de reptiles radioactivos que no nos permite hacerlo, hemos delegado la mision a un becario del tec',1,'Energías alternativas del espacio');
+            insert into dependencia (idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac) values (1,'Zamoris-B','Montar centro de comunicaciones interestelar','Hay una plaga de reptiles radioactivos que no nos permite hacerlo, hemos delegado la mision a un becario del tec',0,'Energías alternativas del espacio');
         """.trimIndent()
+
+        try {
+
 
         db?.let {
             it.execSQL(alumnos)
@@ -155,11 +156,28 @@ class DataBaseSQL(
             it.execSQL(profesor)
             it.execSQL(proyecto)
             it.execSQL(dependencia)
-            it.execSQL(insertAlumnos)
-            it.execSQL(insertReporte)
-            it.execSQL(insertProfesor)
-            it.execSQL(insertProyectos)
+
+            it.execSQL(insertAlumnos1)
+            it.execSQL(insertAlumnos2)
+            it.execSQL(insertAlumnos3)
+
+            it.execSQL(insertReporte1)
+            it.execSQL(insertReporte2)
+
+            it.execSQL(insertProfesor1)
+            it.execSQL(insertProfesor2)
+            it.execSQL(insertProfesor3)
+            it.execSQL(insertProfesor4)
+
+            it.execSQL(insertProyectos1)
+            it.execSQL(insertProyectos2)
+            it.execSQL(insertProyectos3)
+
             it.execSQL(insertDependencia)
+        }
+        }catch (e: Exception){
+            println("ERROR: Al dar de alta la BD")
+            e.printStackTrace()
         }
     }
 
@@ -196,6 +214,7 @@ class DataBaseSQL(
                 cursor.getString(2),
                 cursor.getString(3),
                 cursor.getString(4),
+                cursor.getInt(5),
                 ArrayList()
             )
             alumno.reportes = getReportes(alumno)
@@ -208,13 +227,13 @@ class DataBaseSQL(
     }
 
     @Throws
-    fun updateAlumno(viejo: Alumno, nuevo: Alumno) {
+    fun updateAlumno(a: Alumno) {
         val db = writableDatabase
 
-        val sql =
-            "UPDATE alumno SET nombre = '${nuevo.nombre}', apellidos = '${nuevo.apellidos}', nc = '${nuevo.nc}', pass = '${nuevo.pass}' WHERE idAlumno = ${viejo.id}"
+        val data = ContentValues()
+        data.put("tieneProyecto", a.tieneProyecto)
 
-        db.execSQL(sql)
+        db.update("alumno", data, "idAlumno = ?", arrayOf(a.id.toString()))
 
         db.close()
     }
@@ -420,7 +439,7 @@ class DataBaseSQL(
     @Throws
     fun updateDependencia(d: DependenciaPorAprobar) {
         val db = writableDatabase
-        
+
         val data = ContentValues()
         data.put("aprovado", d.aprobado)
 

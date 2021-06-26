@@ -66,6 +66,7 @@ class DAOAlumno(
                 cursor.getString(2),
                 cursor.getString(3),
                 cursor.getString(4),
+                cursor.getInt(5),
                 ArrayList()
             )
             //alumno.reportes = Utils.daoReporte.getReportes(alumno)

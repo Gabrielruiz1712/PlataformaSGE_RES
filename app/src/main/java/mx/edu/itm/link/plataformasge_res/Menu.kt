@@ -13,7 +13,7 @@ class Menu : AppCompatActivity() {
     companion object {
         lateinit var alumnoLogeado: Alumno
         //Base de datos
-        lateinit var bd : DataBase
+        //lateinit var bd : DataBase
     }
 
 

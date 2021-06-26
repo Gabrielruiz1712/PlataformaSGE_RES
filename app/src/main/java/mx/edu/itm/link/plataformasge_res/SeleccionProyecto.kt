@@ -33,7 +33,7 @@ class SeleccionProyecto : AppCompatActivity() {
         //TODO: esto se va a hacer con un join cuando sea BD
         val profesoresDeLinea = ArrayList<Profesore>()
 
-        for (p in Menu.bd.profesores) {
+        for (p in Utils.database.getProfesores()) {
             //Si la linea del profesor es igual a la linea del proyecto
             if (p.linea == proyecto.lgac) {
                 profesoresDeLinea.add(p)

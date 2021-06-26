@@ -16,9 +16,9 @@ class ReporteActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Base de datos
-        val bdString = resources.getString(R.string.baseDatos)
-        val bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
-
+        //val bdString = resources.getString(R.string.baseDatos)
+        //val bd = Gson().fromJson(bdString, DataBase::class.java) as DataBase
+                    
         binding.fabAddTareaReporte.setOnClickListener {
 
             val titulo = binding.tituloReporte.text.toString()
