@@ -125,15 +125,15 @@ class DataBaseSQL(
         """.trimIndent()
 
         val insertProfesor2 = """
-                insert into profesor (linea, nombre, titulo) values ('Energías alternativas del espacio', 'Alejandro Amaro', 'Ing. de energia obscura', '2', '123');
+                insert into profesor (linea, nombre, titulo, nc, pass) values ('Energías alternativas del espacio', 'Alejandro Amaro', 'Ing. de energia obscura', '2', '123');
         """.trimIndent()
 
         val insertProfesor3 = """
-                insert into profesor (linea, nombre, titulo) values ('Redaccion y filosofía profunda', 'Raymundo', 'Lic. Redaccion y filosofía profunda', '3', '123');
+                insert into profesor (linea, nombre, titulo, nc, pass) values ('Redaccion y filosofía profunda', 'Raymundo', 'Lic. Redaccion y filosofía profunda', '3', '123');
         """.trimIndent()
 
         val insertProfesor4 = """
-                insert into profesor (linea, nombre, titulo) values ('Energías alternativas del espacio', 'Abel Pintor', 'Ing. de energia obscura', '4', '123');
+                insert into profesor (linea, nombre, titulo, nc, pass) values ('Energías alternativas del espacio', 'Abel Pintor', 'Ing. de energia obscura', '4', '123');
         """.trimIndent()
 
         val insertProyectos1 = """
