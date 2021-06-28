@@ -41,11 +41,15 @@ abstract class ReporteAdapter(
 
         val btnDeleteActividad = miView.findViewById<Button>(R.id.btnDeleteActividad)
 
-        val card = miView.findViewById<CardView>(R.id.cardActividadReporte)
-
+        //Si el reporte esta aprovado
         if (lista[position].aprovado == 1){
+            //Se cambia el texto a aprobado
             esAprobado.text = "Aprovado"
+            //Se cambia el color de texto a verde
             esAprobado.setTextColor(R.color.greenAprovado)
+
+            //se deshabilita el boton de eliminar
+            btnDeleteActividad.isEnabled = false
         }
 
         titulo.text = lista[position].titulo

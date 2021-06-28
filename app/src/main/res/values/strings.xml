@@ -114,4 +114,6 @@
     }
 
     </string>
+    <string name="menorQue"><![CDATA[<]]></string>
+  <string name="mayorQue"><![CDATA[>]]></string>
 </resources>

@@ -38,7 +38,6 @@ class DetalleProyecto : AppCompatActivity() {
                     intent.putExtra("ALUMNO", alumno)
                     intent.putExtra("PROYECTO", proyecto)
 
-                    //TODO: Poner el la BD que este alumno ya selecciono proyecto
 
                     alumno.tieneProyecto = 1
                     MainActivity.alumnoLogeado.tieneProyecto = 1

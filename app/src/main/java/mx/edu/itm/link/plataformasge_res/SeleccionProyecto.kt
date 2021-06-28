@@ -42,12 +42,10 @@ class SeleccionProyecto : AppCompatActivity() {
         }
         //Se asigna profesor random
 
-        //TODO: Aca se debe seleccionar un profe disponible y luego setearlo como no disponible en la BD
         val profesorSeleccionado = profesoresDeLinea.random()
         binding.asesorSeleccion.text =
             "${profesorSeleccionado.nombre}\n${profesorSeleccionado.titulo}"
 
-        //TODO: Traer  reportes de la BD
 
         val list = Utils.database.getReportes(alumno)
 

@@ -47,15 +47,18 @@ class DataBaseSQL(
         val profesor = """
             create table profesor
             (
-            	idProfesor integer not null
-            		constraint profesor_pk
-            			primary key autoincrement,
-            	linea text not null,
-            	nombre text not null,
-            	titulo text not null
+                idProfesor integer not null
+                    constraint profesor_pk
+                        primary key autoincrement,
+                linea text not null,
+                nombre text not null,
+                titulo text not null,
+                nc text not null,
+                pass text not null
             );
+
             create unique index profesor_id_uindex
-            	on profesor (idProfesor);
+                on profesor (idProfesor);
         """.trimIndent()
 
         val proyecto = """
@@ -118,19 +121,19 @@ class DataBaseSQL(
 
         //-----------------------------INSERTS Profesor ------------------------------
         val insertProfesor1 = """
-                insert into profesor (linea, nombre, titulo) values ('ciencias del universo','Carol Aidee','Ing. ciencias del universo');
+                insert into profesor (linea, nombre, titulo, nc, pass) values ('ciencias del universo', 'Carol Aidee', 'Ing. ciencias del universo', '1', '123');
         """.trimIndent()
 
         val insertProfesor2 = """
-                insert into profesor (linea, nombre, titulo) values ('Energías alternativas del espacio','Alejandro Amaro','Ing. de energia obscura');
+                insert into profesor (linea, nombre, titulo) values ('Energías alternativas del espacio', 'Alejandro Amaro', 'Ing. de energia obscura', '2', '123');
         """.trimIndent()
 
         val insertProfesor3 = """
-                insert into profesor (linea, nombre, titulo) values ('Redaccion y filosofía profunda','Raymundo','Lic. Redaccion y filosofía profunda');
+                insert into profesor (linea, nombre, titulo) values ('Redaccion y filosofía profunda', 'Raymundo', 'Lic. Redaccion y filosofía profunda', '3', '123');
         """.trimIndent()
 
         val insertProfesor4 = """
-                insert into profesor (linea, nombre, titulo) values ('Energías alternativas del espacio','Abel Pintor','Ing. de energia obscura');
+                insert into profesor (linea, nombre, titulo) values ('Energías alternativas del espacio', 'Abel Pintor', 'Ing. de energia obscura', '4', '123');
         """.trimIndent()
 
         val insertProyectos1 = """
@@ -312,7 +315,7 @@ class DataBaseSQL(
 
         try {
             db.execSQL(sql)
-        }catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 
@@ -325,7 +328,7 @@ class DataBaseSQL(
     fun getProfesores(): ArrayList<Profesore> {
         val db = readableDatabase
 
-        val sql = "select idProfesor, linea, nombre, titulo from profesor"
+        val sql = "select idProfesor, linea, nombre, titulo, nc, pass from profesor"
 
         val cursor = db.rawQuery(sql, null)
 
@@ -336,6 +339,8 @@ class DataBaseSQL(
                 cursor.getString(1),
                 cursor.getString(2),
                 cursor.getString(3),
+                cursor.getString(4),
+                cursor.getString(5)
             )
 
             resultados.add(clase)
@@ -439,14 +444,14 @@ class DataBaseSQL(
     }
 
     @Throws
-    fun getDependencia(): ArrayList<DependenciaPorAprobar> {
+    fun getDependencias(): ArrayList<DependenciaPorAprobar> {
         val db = readableDatabase
 
         val sql =
             "select idDependencia, idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac from dependencia"
 
+        //TODO: No jala las dependencias de la BD
         val cursor = db.rawQuery(sql, null)
-
         val resultados = ArrayList<DependenciaPorAprobar>()
         while (cursor.moveToNext()) {
             val clase = DependenciaPorAprobar(

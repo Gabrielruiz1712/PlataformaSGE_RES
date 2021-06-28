@@ -11,5 +11,9 @@ data class Profesore(
     @SerializedName("nombre")
     val nombre: String,
     @SerializedName("titulo")
-    val titulo: String
+    val titulo: String,
+    @SerializedName("nc")
+    val nc: String,
+    @SerializedName("pass")
+    val pass: String,
 ) : Serializable

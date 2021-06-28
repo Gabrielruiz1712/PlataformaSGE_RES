@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import mx.edu.itm.link.plataformasge_res.data.DataBaseSQL
 import mx.edu.itm.link.plataformasge_res.databinding.ActivityMainBinding
 import mx.edu.itm.link.plataformasge_res.models.Alumno
+import mx.edu.itm.link.plataformasge_res.models.Profesore
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         lateinit var alumnoLogeado: Alumno
+        lateinit var profesorLogeado: Profesore
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val alumnos = Utils.database.getAlumnos()
+        val profesores = Utils.database.getProfesores()
 
         binding.btnLogin.setOnClickListener {
             val nc = binding.noControlLogin.text.toString()
@@ -40,6 +43,15 @@ class MainActivity : AppCompatActivity() {
                     alumnoLogeado = alumno
                     val intent = Intent(this, Menu::class.java)
                     intent.putExtra("ALUMNO", alumno)
+                    startActivity(intent)
+                    break
+                }
+            }
+
+            for (profesor in profesores) {
+                if (profesor.nc == nc && profesor.pass == pass) {
+                    profesorLogeado = profesor
+                    val intent = Intent(this, ResidenciaRegistrada::class.java)
                     startActivity(intent)
                     break
                 }
