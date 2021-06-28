@@ -109,7 +109,7 @@ class DataBaseSQL(
 
         //--------------------------REPORTE ----------------------------------------
         val insertReporte1 = """
-            insert into reporte (aprobado, titulo, descripcion, alumno) values (0, 'Combati hasta que mori pero sobrevivi', 'Hoy en la entrega del proyecto de la segunda unidad casi reprobamos', 2);
+            insert into reporte (aprobado, titulo, descripcion, alumno) values (1, 'Combati hasta que mori pero sobrevivi', 'Hoy en la entrega del proyecto de la segunda unidad casi reprobamos', 2);
         """.trimIndent()
 
         val insertReporte2 = """

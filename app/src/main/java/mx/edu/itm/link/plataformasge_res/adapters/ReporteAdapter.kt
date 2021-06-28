@@ -37,15 +37,15 @@ abstract class ReporteAdapter(
 
         val titulo = miView.findViewById<TextView>(R.id.lblTituloActividad)
         val descipcion = miView.findViewById<TextView>(R.id.lblDescripcionActividad)
+        val esAprobado = miView.findViewById<TextView>(R.id.lblEsAprovado)
 
         val btnDeleteActividad = miView.findViewById<Button>(R.id.btnDeleteActividad)
 
         val card = miView.findViewById<CardView>(R.id.cardActividadReporte)
 
-        if (lista[position].aprovado == 0){
-            card.setBackgroundColor(android.R.color.holo_orange_dark)
-        }else{
-            card.setBackgroundColor(android.R.color.holo_green_light)
+        if (lista[position].aprovado == 1){
+            esAprobado.text = "Aprovado"
+            esAprobado.setTextColor(R.color.greenAprovado)
         }
 
         titulo.text = lista[position].titulo

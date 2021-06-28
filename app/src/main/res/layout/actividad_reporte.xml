@@ -34,6 +34,14 @@
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/lblEsAprovado"
+                    android:layout_width="247dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/red"
+                    android:text="En proceso de revision" />
+
+                <TextView
                     android:id="@+id/lblDescripcionActividad"
                     android:layout_width="247dp"
                     android:layout_height="wrap_content"
@@ -52,13 +60,11 @@
                     style="@style/iconOnly"
                     android:layout_width="48dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     app:icon="@drawable/delete"
                     app:iconTint="#FF0000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
