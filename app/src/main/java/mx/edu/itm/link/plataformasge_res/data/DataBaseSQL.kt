@@ -308,9 +308,13 @@ class DataBaseSQL(
     fun borrarReporte(reporte: Reporte) {
         val db = writableDatabase
 
-        val sql = "DELETE FROM reporte WHERE id=${reporte.id}"
+        val sql = "DELETE FROM reporte WHERE idReporte=${reporte.id}"
 
-        db.execSQL(sql)
+        try {
+            db.execSQL(sql)
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
 
         db.close()
     }
@@ -355,7 +359,7 @@ class DataBaseSQL(
     }
 
     @Throws
-    fun proeyectoDeAlumnoByID(idAlumno: Int) : ArrayList<Proyecto> {
+    fun proeyectoDeAlumnoByID(idAlumno: Int): ArrayList<Proyecto> {
         val db = readableDatabase
 
         val sql =

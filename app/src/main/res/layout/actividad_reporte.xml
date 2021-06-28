@@ -48,27 +48,17 @@
                 android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/btnEditActividadReporte"
-                    android:layout_width="48dp"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="8dp"
-                    app:icon="@drawable/edit"
-                    style="@style/iconOnly"
-                    app:iconTint="#000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
                     android:id="@+id/btnDeleteActividad"
+                    style="@style/iconOnly"
                     android:layout_width="48dp"
                     android:layout_height="50dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="16dp"
                     app:icon="@drawable/delete"
-                    style="@style/iconOnly"
                     app:iconTint="#FF0000"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/btnEditActividadReporte"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

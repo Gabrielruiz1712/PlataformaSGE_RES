@@ -3,6 +3,7 @@ package mx.edu.itm.link.plataformasge_res
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import mx.edu.itm.link.plataformasge_res.adapters.ReporteAdapter
@@ -14,12 +15,12 @@ import mx.edu.itm.link.plataformasge_res.models.Reporte
 
 class SeleccionProyecto : AppCompatActivity() {
     private lateinit var binding: ActivitySeleccionProyectoBinding
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySeleccionProyectoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
 
         val alumno = Menu.alumnoLogeado
@@ -43,33 +44,40 @@ class SeleccionProyecto : AppCompatActivity() {
 
         //TODO: Aca se debe seleccionar un profe disponible y luego setearlo como no disponible en la BD
         val profesorSeleccionado = profesoresDeLinea.random()
-        binding.asesorSeleccion.text = "${profesorSeleccionado.nombre}\n${profesorSeleccionado.titulo}"
+        binding.asesorSeleccion.text =
+            "${profesorSeleccionado.nombre}\n${profesorSeleccionado.titulo}"
 
         //TODO: Traer  reportes de la BD
 
         val list = Utils.database.getReportes(alumno)
 
-        binding.lvReportes.adapter = object : ReporteAdapter(this, R.layout.actividad_reporte, list){
-            override fun deleteActividad(actividadReporte: Reporte) {
-                TODO("Not yet implemented")
-            }
+        binding.lvReportes.adapter =
+            object : ReporteAdapter(this, R.layout.actividad_reporte, list) {
+                override fun deleteActividad(actividadReporte: Reporte) {
+                    Utils.database.borrarReporte(actividadReporte)
+                    Toast.makeText(context, "Se ha borrado el reporte", Toast.LENGTH_SHORT).show()
+                }
 
-            override fun editActividad(actividadReporte: Reporte) {
-                TODO("Not yet implemented")
             }
-
-        }
 
 
         var numReportes = 0
-        for (r in Menu.alumnoLogeado.reportes){
-            if (r.aprovado < 3){
+        for (r in Menu.alumnoLogeado.reportes) {
+            if (r.aprovado < 3) {
                 numReportes++
             }
         }
 
-        if (numReportes == 3){
-            binding.btnAgregarReporteSeleccion.isEnabled = false
+        var aprovados = 0
+        for (reporte in Utils.database.getReportes(alumno)) {
+            //Se cuentan los reportes aprovados
+            if (reporte.aprovado == 1) {
+                aprovados++
+            }
+            //Si hay 3 reportes aprobados se deshabilita el boton de agregar reporte
+            if (aprovados == 3) {
+                binding.btnAgregarReporteSeleccion.isEnabled = false
+            }
         }
         binding.btnAgregarReporteSeleccion.setOnClickListener {
             val intent = Intent(this, ReporteActivity::class.java)
