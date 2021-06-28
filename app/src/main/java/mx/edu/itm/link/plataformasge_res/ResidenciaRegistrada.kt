@@ -1,6 +1,7 @@
 package mx.edu.itm.link.plataformasge_res
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import mx.edu.itm.link.plataformasge_res.databinding.ActivityResidenciaRegistradaBinding
@@ -19,27 +20,42 @@ class ResidenciaRegistrada : AppCompatActivity() {
         setContentView(binding.root)
 
         dependenciasProAprobar = ArrayList()
-        for (dep in Utils.database.getDependencias()) {
-            if (dep.aprobado == 0) {
-                dependenciasProAprobar.add(dep)
+        if (Utils.database.getDependencias().isNotEmpty()) {
+            for (dep in Utils.database.getDependencias()) {
+                if (dep.aprobado == 0) {
+                    dependenciasProAprobar.add(dep)
+                }
             }
+        }else{
+            binding.lblNoHay.visibility = View.VISIBLE
+            binding.linearTemplate.visibility = View.INVISIBLE
         }
 
-        navegar(0)
-        var dependenciaSeleccionada = dependenciasProAprobar[0]
+        if(dependenciasProAprobar.isNotEmpty()){
+            navegar(0)
+        }
+
         var indice = 1
+        var dependenciaSeleccionada = dependenciasProAprobar[0]
+
         binding.btnNext.setOnClickListener {
-            //Se obtiene el tamaño del listado de las dependencias
-            val nDependencias = dependenciasProAprobar.size
-            //Si el indice es menor al numero de dependencias en la lista
-            if (indice >= nDependencias) {
-                indice = 0
-                navegar(indice)
-                dependenciaSeleccionada = dependenciasProAprobar[indice]
+
+            if (dependenciasProAprobar.size == 0) {
+                binding.lblNoHay.visibility = View.VISIBLE
+                binding.linearTemplate.visibility = View.INVISIBLE
             } else {
-                navegar(indice)
-                dependenciaSeleccionada = dependenciasProAprobar[indice]
-                indice++
+                //Se obtiene el tamaño del listado de las dependencias
+                val nDependencias = dependenciasProAprobar.size
+                //Si el indice es menor al numero de dependencias en la lista
+                if (indice >= nDependencias) {
+                    indice = 0
+                    navegar(indice)
+                    dependenciaSeleccionada = dependenciasProAprobar[indice]
+                } else {
+                    navegar(indice)
+                    dependenciaSeleccionada = dependenciasProAprobar[indice]
+                    indice++
+                }
             }
         }
 
@@ -47,7 +63,9 @@ class ResidenciaRegistrada : AppCompatActivity() {
             dependenciaSeleccionada.aprobado = 1
             try {
                 Utils.database.updateDependencia(dependenciaSeleccionada)
-            }catch (e: Exception){
+                dependenciasProAprobar.remove(dependenciaSeleccionada)
+                Toast.makeText(this, "Se aprobo dependencia", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
                 e.printStackTrace()
                 Toast.makeText(this, "Error al aprobar", Toast.LENGTH_SHORT).show()
             }

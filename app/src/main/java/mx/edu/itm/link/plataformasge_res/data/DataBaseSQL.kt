@@ -481,11 +481,39 @@ class DataBaseSQL(
     }
 
     @Throws
+    fun getDependenciasDeAlumno (): ArrayList<DependenciaPorAprobar> {
+        val db = readableDatabase
+
+        val sql =
+            "select idDependencia, idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac from dependencia inner join alumno a on a.idAlumno = dependencia.idDependencia;"
+
+        //TODO: No jala las dependencias de la BD
+        val cursor = db.rawQuery(sql, null)
+        val resultados = ArrayList<DependenciaPorAprobar>()
+        while (cursor.moveToNext()) {
+            val clase = DependenciaPorAprobar(
+                cursor.getInt(0),
+                cursor.getInt(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4),
+                cursor.getInt(5),
+                cursor.getString(6),
+            )
+
+            resultados.add(clase)
+        }
+        db.close()
+
+        return resultados
+    }
+
+    @Throws
     fun updateDependencia(d: DependenciaPorAprobar) {
         val db = writableDatabase
 
         val data = ContentValues()
-        data.put("aprovado", d.aprobado)
+        data.put("aprobado", d.aprobado)
 
         db.update("dependencia", data, "idDependencia = ?", arrayOf(d.id.toString()))
 

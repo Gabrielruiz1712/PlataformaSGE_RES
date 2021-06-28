@@ -30,8 +30,23 @@ class MenuResidencias : AppCompatActivity() {
 
         //Hice el listView con herencia ya que nececitaba pasar un extra adicional que
         //   no podria traerme desde el adapter
+        val proyectos = ArrayList<Proyecto>()
+        for (dependencia in Utils.database.getDependenciasDeAlumno()) {
+            if (dependencia.aprobado == 1) {
+                val proyecto = Proyecto(
+                    dependencia.id,
+                    dependencia.nombreProyecto,
+                    dependencia.nombreEmpresa,
+                    dependencia.descripcionDelProyecto,
+                    dependencia.lgac
+                )
+                proyectos.add(proyecto)
+            }
+        }
+
+        proyectos.addAll(bd.getProyectos())
         binding.lvProyecto.adapter =
-            object : ProyectoAdapter(this, R.layout.proyecto, bd.getProyectos()) {
+            object : ProyectoAdapter(this, R.layout.proyecto, proyectos) {
                 override fun clickItemProyecto(proyecto: Proyecto) {
                     val intent = Intent(context, DetalleProyecto::class.java)
                     intent.putExtra("PROYECTO", proyecto)
@@ -56,7 +71,7 @@ class MenuResidencias : AppCompatActivity() {
         if (MainActivity.alumnoLogeado.tieneProyecto == 1) {
             binding.fabAddReporteResidencias.isEnabled = true
             binding.fabAgregarProeyecto.isEnabled = false
-        }else{
+        } else {
             binding.fabAddReporteResidencias.isEnabled = false
             binding.fabAgregarProeyecto.isEnabled = true
         }
