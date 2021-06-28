@@ -99,11 +99,11 @@ class DataBaseSQL(
 
         //-------------------- Inserts Alumnos -------------------
         val insertAlumnos1 = """
-            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Emmanuel', 'Esquivel', '18120215', '123', 1);
+            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Emmanuel', 'Esquivel', '18120215', '123', 0);
         """.trimIndent()
 
         val insertAlumnos2 = """
-            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Gabriel', 'Ruiz', '17121102', '123', 0);
+            insert into alumno (nombre, apellidos, nc, pass, tieneProyecto) values ('Gabriel', 'Ruiz', '17121102', '123', 1);
         """.trimIndent()
 
         val insertAlumnos3 = """
@@ -146,8 +146,12 @@ class DataBaseSQL(
             insert into proyecto (nombre, empresa, descripcion, lgac, seleccionado) values ('Diccionario para entender a mi novia','IT-Morelia','Redactar una guia eficaz dirigida al Emmanuel para desbloquear el tope del conocimiento humano','Redaccion y filosofía profunda', 0);
         """.trimIndent()
         // ------------------------INSERTS Dependencia -------------------------------------
-        val insertDependencia = """
+        val insertDependencia1 = """
             insert into dependencia (idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac) values (1,'Zamoris-B','Montar centro de comunicaciones interestelar','Hay una plaga de reptiles radioactivos que no nos permite hacerlo, hemos delegado la mision a un becario del tec',0,'Energías alternativas del espacio');
+        """.trimIndent()
+
+        val insertDependencia2 = """
+            insert into dependencia (idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac) values (1,'ITM','Desarrollo de formula anticovid','Desarrollo de una formula para desinfectar superficies incluyendo covid',0,'Salud publica');
         """.trimIndent()
 
         try {
@@ -176,7 +180,8 @@ class DataBaseSQL(
                 it.execSQL(insertProyectos2)
                 it.execSQL(insertProyectos3)
 
-                it.execSQL(insertDependencia)
+                it.execSQL(insertDependencia1)
+                it.execSQL(insertDependencia2)
             }
         } catch (e: Exception) {
             println("ERROR: Al dar de alta la BD")

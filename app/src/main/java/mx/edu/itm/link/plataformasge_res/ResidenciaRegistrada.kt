@@ -12,18 +12,18 @@ class ResidenciaRegistrada : AppCompatActivity() {
         binding = ActivityResidenciaRegistradaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var indice = 0
+        navegar(0)
+        var indice = 1
         binding.btnNext.setOnClickListener {
+            //Se obtiene el tamaño del listado de las dependencias
             val nDependencias = Utils.database.getDependencias().size
-            if (nDependencias != 0) {
+            //Si el indice es menor al numero de dependencias en la lista
+            if (indice >= nDependencias) {
+                indice = 0
                 navegar(indice)
-                if (indice < nDependencias) {
-                    indice++
-                } else {
-                    indice = 0
-                }
-            }else{
-                Toast.makeText(this, "No hay dependencias pro aprobar", Toast.LENGTH_SHORT).show()
+            } else {
+                navegar(indice)
+                indice++
             }
         }
 
