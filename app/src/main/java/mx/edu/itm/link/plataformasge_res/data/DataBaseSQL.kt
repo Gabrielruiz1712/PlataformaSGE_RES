@@ -440,10 +440,14 @@ class DataBaseSQL(
         val sql =
             """
                 insert into dependencia (idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac)
-                values (1,'${d.idAlumnoRegistrador}','${d.nombreEmpresa}','${d.nombreProyecto}',${d.aprobado},'${d.lgac}');
+                values ('${d.idAlumnoRegistrador}','${d.nombreEmpresa}','${d.nombreProyecto}', '${d.descripcionDelProyecto}', ${d.aprobado},'${d.lgac}');
             """.trimIndent()
 
-        db.execSQL(sql)
+        try {
+            db.execSQL(sql)
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
 
         db.close()
     }
@@ -484,6 +488,21 @@ class DataBaseSQL(
         data.put("aprovado", d.aprobado)
 
         db.update("dependencia", data, "idDependencia = ?", arrayOf(d.id.toString()))
+
+        db.close()
+    }
+
+    @Throws
+    fun borrarDependencia(dependenciaPorAprobar: DependenciaPorAprobar) {
+        val db = writableDatabase
+
+        val sql = "DELETE FROM dependencia WHERE idDependencia=${dependenciaPorAprobar.id}"
+
+        try {
+            db.execSQL(sql)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
         db.close()
     }

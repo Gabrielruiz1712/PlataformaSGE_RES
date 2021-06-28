@@ -4,33 +4,64 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import mx.edu.itm.link.plataformasge_res.databinding.ActivityResidenciaRegistradaBinding
+import mx.edu.itm.link.plataformasge_res.models.DependenciaPorAprobar
+import java.lang.Exception
 
 class ResidenciaRegistrada : AppCompatActivity() {
     private lateinit var binding: ActivityResidenciaRegistradaBinding
+
+    //Se llena el listado de dependencias no aprobadas
+    lateinit var dependenciasProAprobar: ArrayList<DependenciaPorAprobar>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResidenciaRegistradaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        dependenciasProAprobar = ArrayList()
+        for (dep in Utils.database.getDependencias()) {
+            if (dep.aprobado == 0) {
+                dependenciasProAprobar.add(dep)
+            }
+        }
+
         navegar(0)
+        var dependenciaSeleccionada = dependenciasProAprobar[0]
         var indice = 1
         binding.btnNext.setOnClickListener {
             //Se obtiene el tamaño del listado de las dependencias
-            val nDependencias = Utils.database.getDependencias().size
+            val nDependencias = dependenciasProAprobar.size
             //Si el indice es menor al numero de dependencias en la lista
             if (indice >= nDependencias) {
                 indice = 0
                 navegar(indice)
+                dependenciaSeleccionada = dependenciasProAprobar[indice]
             } else {
                 navegar(indice)
+                dependenciaSeleccionada = dependenciasProAprobar[indice]
                 indice++
             }
+        }
+
+        binding.btnAprobar.setOnClickListener {
+            dependenciaSeleccionada.aprobado = 1
+            try {
+                Utils.database.updateDependencia(dependenciaSeleccionada)
+            }catch (e: Exception){
+                e.printStackTrace()
+                Toast.makeText(this, "Error al aprobar", Toast.LENGTH_SHORT).show()
+            }
+        }
+        binding.btnRechazar.setOnClickListener {
+            Utils.database.borrarDependencia(dependenciaSeleccionada)
+            Toast.makeText(this, "Se Rechazo dependencia", Toast.LENGTH_SHORT).show()
+            dependenciasProAprobar.remove(dependenciaSeleccionada)
         }
 
     }
 
     fun navegar(position: Int) {
-        val dependencias = Utils.database.getDependencias()
+        val dependencias = dependenciasProAprobar
         //Para imprimir el indice de la navegacion
         binding.lblNavegacion.text = "${position + 1} de ${dependencias.size}"
         binding.nombreEmpresaReg.text = dependencias[position].nombreEmpresa

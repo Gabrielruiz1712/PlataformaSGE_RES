@@ -15,7 +15,7 @@ data class DependenciaPorAprobar(
     @SerializedName("descripcionDelProyecto")
     val descripcionDelProyecto: String,
     @SerializedName("aprobado")
-    val aprobado: Int,
+    var aprobado: Int,
     @SerializedName("lgac")
     val lgac: String
 ) : Serializable

@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:enabled="false"
             android:hint="Numero de control"
             android:text=""/>
 
@@ -38,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:enabled="false"
             android:hint="Nombre de Alumno"/>
 
         <TextView
@@ -54,10 +56,32 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Nombre del Proyecto"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/nombreProyectoD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Descripcion del Proyecto"
             android:textStyle="bold"/>
         <EditText
             android:id="@+id/ProyectoD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Linea de estudio"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/lgacProyectoD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="" />
