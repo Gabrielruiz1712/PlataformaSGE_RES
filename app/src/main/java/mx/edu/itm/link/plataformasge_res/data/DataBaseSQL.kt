@@ -135,7 +135,7 @@ class DataBaseSQL(
         val insertProfesor4 = """
                 insert into profesor (linea, nombre, titulo, nc, pass) values ('Energías alternativas del espacio', 'Abel Pintor', 'Ing. de energia obscura', '4', '123');
         """.trimIndent()
-
+        //-----------------------------INSERTS Proyectos ------------------------------
         val insertProyectos1 = """
             insert into proyecto (nombre, empresa, descripcion, lgac, seleccionado) values ('Reclutar aliens','Area 51','Reclutar cientificos del planeta X12.0 para aplicaciones de intervuelo','ciencias del universo', 0);
         """.trimIndent()
@@ -481,11 +481,11 @@ class DataBaseSQL(
     }
 
     @Throws
-    fun getDependenciasDeAlumno (): ArrayList<DependenciaPorAprobar> {
+    fun getDependenciasDeAlumno (alumno: Alumno): ArrayList<DependenciaPorAprobar> {
         val db = readableDatabase
 
         val sql =
-            "select idDependencia, idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac from dependencia inner join alumno a on a.idAlumno = dependencia.idDependencia;"
+            "select idDependencia, idAlumnoRegistrador, nombreEmpresa, nombreProyecto, descripcionProyecto, aprobado, lgac from dependencia inner join alumno a on a.idAlumno = dependencia.idDependencia where a.idAlumno like ${alumno.id};"
 
         //TODO: No jala las dependencias de la BD
         val cursor = db.rawQuery(sql, null)

@@ -31,7 +31,7 @@ class MenuResidencias : AppCompatActivity() {
         //Hice el listView con herencia ya que nececitaba pasar un extra adicional que
         //   no podria traerme desde el adapter
         val proyectos = ArrayList<Proyecto>()
-        for (dependencia in Utils.database.getDependenciasDeAlumno()) {
+        for (dependencia in Utils.database.getDependenciasDeAlumno(MainActivity.alumnoLogeado)) {
             if (dependencia.aprobado == 1) {
                 val proyecto = Proyecto(
                     dependencia.id,
