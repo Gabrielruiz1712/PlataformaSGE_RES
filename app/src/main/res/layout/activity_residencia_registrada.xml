@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="No hay dependencias por aprobar"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +34,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp">
+
+            <Button
+                android:id="@+id/btnReportes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reportes" />
 
             <TextView
                 android:id="@+id/lblNavegacion"

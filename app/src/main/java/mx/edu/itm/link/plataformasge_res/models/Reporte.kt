@@ -7,7 +7,7 @@ data class Reporte(
     @SerializedName("id")
     val id: Int,
     @SerializedName("aprovado")
-    val aprovado: Int,
+    var aprovado: Int,
     @SerializedName("titulo")
     val titulo: String,
     @SerializedName("descripcion")

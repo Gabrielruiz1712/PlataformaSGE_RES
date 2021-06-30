@@ -45,7 +45,7 @@ class DataBaseSQL(
         """.trimIndent()
 
         val profesor = """
-            create table profesor
+           create table profesor
             (
                 idProfesor integer not null
                     constraint profesor_pk
@@ -54,9 +54,12 @@ class DataBaseSQL(
                 nombre text not null,
                 titulo text not null,
                 nc text not null,
-                pass text not null
+                pass text not null,
+                proyecto integer,
+                constraint profesor_proyecto_idProyecto_idProyecto_fk
+                    foreign key (idProfesor, idProfesor) references proyecto (idProyecto, idProyecto)
             );
-
+            
             create unique index profesor_id_uindex
                 on profesor (idProfesor);
         """.trimIndent()
@@ -301,11 +304,41 @@ class DataBaseSQL(
     }
 
     @Throws
-    fun updateReporte(viejo: Reporte, nuevo: Reporte) {
+    fun getTodosReportes(): ArrayList<Reporte> {
+        val db = readableDatabase
+
+        val sql =
+            "select idReporte, aprobado, titulo, descripcion, alumno from reporte"
+
+        try {
+            val cursor = db.rawQuery(sql, null)
+
+            val resultados = ArrayList<Reporte>()
+            while (cursor.moveToNext()) {
+                val contact = Reporte(
+                    cursor.getInt(0),
+                    cursor.getInt(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getInt(4)
+                )
+
+                resultados.add(contact)
+            }
+            db.close()
+            return resultados
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return ArrayList()
+    }
+
+    @Throws
+    fun updateReporte(nuevo: Reporte) {
         val db = writableDatabase
 
         val sql =
-            "UPDATE reporte SET aprobado= ${nuevo.aprovado}, titulo= '${nuevo.titulo}', descripcion = '${nuevo.descripcion}' WHERE idReporte = ${viejo.id}"
+            "UPDATE reporte SET aprobado= ${nuevo.aprovado} WHERE idReporte = ${nuevo.id}"
 
         db.execSQL(sql)
 
@@ -445,7 +478,7 @@ class DataBaseSQL(
 
         try {
             db.execSQL(sql)
-        }catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 
@@ -481,7 +514,7 @@ class DataBaseSQL(
     }
 
     @Throws
-    fun getDependenciasDeAlumno (alumno: Alumno): ArrayList<DependenciaPorAprobar> {
+    fun getDependenciasDeAlumno(alumno: Alumno): ArrayList<DependenciaPorAprobar> {
         val db = readableDatabase
 
         val sql =
